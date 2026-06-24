@@ -1,0 +1,1898 @@
+Total de registros incluidos: 69
+
+DOCUMENTO PARA VERIFICACAO NO JUSBRASIL / FONTES OFICIAIS
+Gerado pelo Codex em 2026-06-23
+
+IMPORTANTE
+- Este documento NAO e base final para subir na Supabase.
+- Todos os itens permanecem A_VERIFICAR ate conferencia humana.
+- Para LEI: confirmar preferencialmente no Planalto.
+- Para JURISPRUDENCIA: conferir no STJ/STF e, se quiser, usar Jusbrasil como apoio de busca.
+- Quando conferir, anotar: CONFIRMADO / CORRIGIR / EXCLUIR, URL encontrada e observacao.
+
+FALTA CONHECIDA
+- JV-010 ainda nao foi entregue pelo outro GPT. Pesquisar jurisprudencia sobre responsabilidade objetiva de instituicao financeira por fortuito interno/fraudes bancarias, especialmente ligada a Sumula 479/STJ, se aplicavel.
+
+================================================================================
+01 - FUNDAMENTOS, BUSCA E APREENSAO, REVISIONAL E FRAUDES
+================================================================================
+
+ID: LEG-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm
+
+O QUE CONFERIR:
+A expressão 'aplica-se integralmente' é excessiva; a referência à ADPF 165 como fundamento de consolidação definitiva é inadequada; a inversão do ônus da prova não é automática; a competência do JEC não decorre do reconhecimento da relação de consumo.
+
+TEXTO/TESE A CONFERIR:
+CDC art. 3º, §2º: serviço inclui atividades bancárias, financeiras, de crédito e securitárias. Súmula 297/STJ: o Código de Defesa do Consumidor é aplicável às instituições financeiras.
+
+RESUMO TECNICO:
+As instituições financeiras estão sujeitas ao CDC nas relações de consumo, observadas as regras legais e a jurisprudência aplicável.
+
+APLICACAO PRATICA:
+Permite ao consumidor invocar proteção contra cláusulas abusivas, defeitos do serviço e falhas de informação em contratos bancários.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"CDC art. 3º, §2º: serviço inclui atividades bancárias, financeiras, de crédito e securitárias. Súmula 297/STJ: o Código de Defesa do Consumidor é aplicável às instituições financeiras. As instituições financeiras estão sujeitas ao CDC nas relações de consumo, observadas as regras"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO_COM_AJUSTES
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm#art14
+
+O QUE CONFERIR:
+A parte relativa a fortuito interno decorre principalmente de construção jurisprudencial; a distribuição do ônus probatório foi simplificada; nem toda fraude implica automaticamente responsabilidade da instituição financeira.
+
+TEXTO/TESE A CONFERIR:
+CDC art. 14: o fornecedor responde independentemente de culpa pelos danos decorrentes de defeitos na prestação do serviço, salvo hipóteses legais de exclusão de responsabilidade.
+
+RESUMO TECNICO:
+A responsabilidade por falha do serviço bancário é objetiva, dependendo da comprovação do dano e do nexo causal.
+
+APLICACAO PRATICA:
+Utilizado em demandas envolvendo fraudes, cobranças indevidas, falhas operacionais e negativações indevidas.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"CDC art. 14: o fornecedor responde independentemente de culpa pelos danos decorrentes de defeitos na prestação do serviço, salvo hipóteses legais de exclusão de responsabilidade. A responsabilidade por falha do serviço bancário é objetiva, dependendo da comprovação do dano e do n"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm#art39
+
+O QUE CONFERIR:
+O Tema 958/STJ foi resumido de forma simplificada; juros acima da média BACEN não são automaticamente abusivos; o parágrafo único do art. 39 não possui a abrangência atribuída ao texto.
+
+TEXTO/TESE A CONFERIR:
+CDC art. 39 veda práticas abusivas como venda casada, envio de produto não solicitado e exigência de vantagem manifestamente excessiva.
+
+RESUMO TECNICO:
+O dispositivo estabelece limites à atuação do fornecedor nas relações de consumo.
+
+APLICACAO PRATICA:
+Serve de fundamento para questionar seguros impostos, serviços não contratados e cobranças abusivas.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"CDC art. 39 veda práticas abusivas como venda casada, envio de produto não solicitado e exigência de vantagem manifestamente excessiva. O dispositivo estabelece limites à atuação do fornecedor nas relações de consumo."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm#art42
+
+O QUE CONFERIR:
+A repetição em dobro não exige necessariamente demonstração de má-fé nos termos apresentados; a jurisprudência evoluiu após o EAREsp 600.663/RS; a prescrição foi tratada de forma excessivamente simplificada.
+
+TEXTO/TESE A CONFERIR:
+CDC art. 42, parágrafo único: o consumidor cobrado em quantia indevida tem direito à repetição do indébito, observados os requisitos legais.
+
+RESUMO TECNICO:
+A devolução de valores cobrados indevidamente depende da análise das circunstâncias do caso concreto.
+
+APLICACAO PRATICA:
+Utilizado para pedidos de restituição de tarifas, encargos e cobranças indevidas.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"CDC art. 42, parágrafo único: o consumidor cobrado em quantia indevida tem direito à repetição do indébito, observados os requisitos legais. A devolução de valores cobrados indevidamente depende da análise das circunstâncias do caso concreto."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-005
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm#art52
+
+O QUE CONFERIR:
+O texto atribui ao §3º conteúdo que não corresponde literalmente à redação legal; há extrapolação sobre nulidade automática de encargos e atuação ex officio do magistrado.
+
+TEXTO/TESE A CONFERIR:
+CDC art. 52 disciplina os deveres de informação em operações de crédito e financiamento ao consumidor.
+
+RESUMO TECNICO:
+O fornecedor deve informar adequadamente valores, encargos, taxas e condições da operação.
+
+APLICACAO PRATICA:
+Permite questionar contratos com informações incompletas ou inadequadas sobre o custo do crédito.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"CDC art. 52 disciplina os deveres de informação em operações de crédito e financiamento ao consumidor. O fornecedor deve informar adequadamente valores, encargos, taxas e condições da operação."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-006
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14181.htm
+
+O QUE CONFERIR:
+Parte dos deveres atribuídos ao art. 54-B foi resumida de forma ampliada; algumas conclusões possuem caráter interpretativo e não decorrem literalmente da lei.
+
+TEXTO/TESE A CONFERIR:
+A Lei 14.181/2021 introduziu regras de prevenção e tratamento do superendividamento do consumidor.
+
+RESUMO TECNICO:
+A legislação reforça deveres de informação e proteção ao consumidor em operações de crédito.
+
+APLICACAO PRATICA:
+Aplicável em ações envolvendo superendividamento, renegociação de dívidas e crédito responsável.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A Lei 14.181/2021 introduziu regras de prevenção e tratamento do superendividamento do consumidor. A legislação reforça deveres de informação e proteção ao consumidor em operações de crédito."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-007
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/decreto-lei/1965-1988/del0911.htm
+
+O QUE CONFERIR:
+Mistura disposições legais do DL 911/1969 com entendimentos jurisprudenciais; a constituição em mora e seus efeitos dependem também da interpretação consolidada do STJ; parte das conclusões possui caráter explicativo e não normativo.
+
+TEXTO/TESE A CONFERIR:
+O Decreto-Lei 911/1969 disciplina a busca e apreensão de bens alienados fiduciariamente e os efeitos da mora do devedor fiduciante.
+
+RESUMO TECNICO:
+A ação de busca e apreensão exige observância dos requisitos legais de constituição em mora e do procedimento específico previsto em lei.
+
+APLICACAO PRATICA:
+Utilizado para verificar a regularidade da constituição em mora e da retomada do bem objeto de alienação fiduciária.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Decreto-Lei 911/1969 disciplina a busca e apreensão de bens alienados fiduciariamente e os efeitos da mora do devedor fiduciante. A ação de busca e apreensão exige observância dos requisitos legais de constituição em mora e do procedimento específico previsto em lei."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-008
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2004-2006/2004/lei/l10931.htm
+
+O QUE CONFERIR:
+O texto combina dispositivos da Lei 10.931/2004 com estratégias processuais e conclusões não expressamente previstas na legislação; algumas consequências jurídicas foram apresentadas como automáticas.
+
+TEXTO/TESE A CONFERIR:
+A Lei 10.931/2004 disciplina diversos instrumentos de crédito e garantias utilizados em operações financeiras.
+
+RESUMO TECNICO:
+A validade e os efeitos dos instrumentos previstos na lei dependem da observância dos requisitos legais e contratuais.
+
+APLICACAO PRATICA:
+Aplicável na análise de contratos bancários garantidos por instrumentos regulados pela Lei 10.931/2004.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A Lei 10.931/2004 disciplina diversos instrumentos de crédito e garantias utilizados em operações financeiras. A validade e os efeitos dos instrumentos previstos na lei dependem da observância dos requisitos legais e contratuais."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-009
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l9514.htm
+
+O QUE CONFERIR:
+A afirmação de que a mora ocorre apenas após determinado número de parcelas em atraso não encontra respaldo direto na lei; há simplificação excessiva do procedimento de consolidação da propriedade.
+
+TEXTO/TESE A CONFERIR:
+A Lei 9.514/1997 disciplina a alienação fiduciária de bens imóveis e o procedimento de consolidação da propriedade fiduciária.
+
+RESUMO TECNICO:
+O procedimento imobiliário é predominantemente extrajudicial e depende do cumprimento dos requisitos legais de notificação e consolidação.
+
+APLICACAO PRATICA:
+Utilizado na conferência da regularidade dos procedimentos de execução extrajudicial de imóveis.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A Lei 9.514/1997 disciplina a alienação fiduciária de bens imóveis e o procedimento de consolidação da propriedade fiduciária. O procedimento imobiliário é predominantemente extrajudicial e depende do cumprimento dos requisitos legais de notificação e consolidação."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: LEG-010
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/mpv/2170-36.htm
+
+O QUE CONFERIR:
+Há confusão entre capitalização de juros, Tema 973/STJ e utilização da Tabela Price; parte das conclusões técnicas não decorre diretamente da norma legal citada.
+
+TEXTO/TESE A CONFERIR:
+A MP 2.170-36/2001 admite a capitalização de juros com periodicidade inferior à anual nas hipóteses legalmente autorizadas.
+
+RESUMO TECNICO:
+A validade da capitalização depende da legislação aplicável, da pactuação contratual e da jurisprudência pertinente.
+
+APLICACAO PRATICA:
+Exige análise contratual e técnica para verificação da legalidade dos encargos cobrados.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A MP 2.170-36/2001 admite a capitalização de juros com periodicidade inferior à anual nas hipóteses legalmente autorizadas. A validade da capitalização depende da legislação aplicável, da pactuação contratual e da jurisprudência pertinente."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: BA-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/decreto-lei/1965-1988/del0911.htm
+
+O QUE CONFERIR:
+A descrição das fases do procedimento contém simplificações; a purgação da mora e os efeitos da consolidação dependem da redação legal vigente e da jurisprudência posterior; parte do conteúdo possui caráter didático e não legal.
+
+TEXTO/TESE A CONFERIR:
+O Decreto-Lei 911/1969 disciplina o procedimento da ação de busca e apreensão fundada em alienação fiduciária de bem móvel.
+
+RESUMO TECNICO:
+A retomada do bem depende da constituição regular da mora e do cumprimento do procedimento legal específico.
+
+APLICACAO PRATICA:
+Utilizado para verificar nulidades processuais e requisitos da busca e apreensão.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Decreto-Lei 911/1969 disciplina o procedimento da ação de busca e apreensão fundada em alienação fiduciária de bem móvel. A retomada do bem depende da constituição regular da mora e do cumprimento do procedimento legal específico."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: BA-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO_COM_AJUSTES
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=1132
+
+O QUE CONFERIR:
+As teses centrais correspondem ao Tema 1132/STJ, porém os comentários estratégicos posteriores não integram a tese repetitiva e devem ser tratados separadamente.
+
+TEXTO/TESE A CONFERIR:
+A entrega da notificação no endereço do devedor é suficiente para constituição em mora, sendo desnecessária a assinatura do próprio destinatário; após a consolidação da propriedade fiduciária não é admitida a purgação da mora.
+
+RESUMO TECNICO:
+O Tema 1132 uniformizou a interpretação sobre notificação extrajudicial e limites da purgação da mora.
+
+APLICACAO PRATICA:
+Fundamental para análise da validade da mora em ações de busca e apreensão.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A entrega da notificação no endereço do devedor é suficiente para constituição em mora, sendo desnecessária a assinatura do próprio destinatário; após a consolidação da propriedade fiduciária não é admitida a purgação da mora. O Tema 1132 uniformizou a interpretação sobre notific"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: BA-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+
+O QUE CONFERIR:
+Estratégias processuais apresentadas como regra; referências imprecisas a recursos e efeitos processuais.
+
+TEXTO/TESE A CONFERIR:
+O Código de Processo Civil disciplina defesa, contraditório, recursos e tutela jurisdicional aplicáveis às ações de busca e apreensão.
+
+RESUMO TECNICO:
+As medidas defensivas dependem da situação processual concreta e dos requisitos legais aplicáveis.
+
+APLICACAO PRATICA:
+Utilizado na elaboração de contestações e impugnações processuais.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Código de Processo Civil disciplina defesa, contraditório, recursos e tutela jurisdicional aplicáveis às ações de busca e apreensão. As medidas defensivas dependem da situação processual concreta e dos requisitos legais aplicáveis."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: BA-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/decreto-lei/1965-1988/del0911.htm
+
+O QUE CONFERIR:
+Utilização de conceitos superados; simplificação dos efeitos da consolidação da propriedade fiduciária.
+
+TEXTO/TESE A CONFERIR:
+A consolidação da propriedade fiduciária produz efeitos específicos previstos na legislação aplicável.
+
+RESUMO TECNICO:
+Os efeitos da consolidação devem ser analisados conforme a legislação e a jurisprudência vigentes.
+
+APLICACAO PRATICA:
+Importante para avaliar a regularidade da transferência da propriedade ao credor fiduciário.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A consolidação da propriedade fiduciária produz efeitos específicos previstos na legislação aplicável. Os efeitos da consolidação devem ser analisados conforme a legislação e a jurisprudência vigentes."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: BA-005
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp
+
+O QUE CONFERIR:
+Conclusões amplas sobre descaracterização da mora; contextualização insuficiente de TAC, TEC e encargos contratuais.
+
+TEXTO/TESE A CONFERIR:
+A descaracterização da mora depende da análise dos encargos efetivamente exigidos e da jurisprudência aplicável.
+
+RESUMO TECNICO:
+Nem toda irregularidade contratual produz automaticamente a descaracterização da mora.
+
+APLICACAO PRATICA:
+Exige avaliação individualizada do contrato e dos encargos discutidos.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A descaracterização da mora depende da análise dos encargos efetivamente exigidos e da jurisprudência aplicável. Nem toda irregularidade contratual produz automaticamente a descaracterização da mora."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: BA-006
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l9514.htm
+
+O QUE CONFERIR:
+Referência indevida a regra fixa de parcelas em atraso; simplificação excessiva do procedimento extrajudicial.
+
+TEXTO/TESE A CONFERIR:
+A Lei 9.514/1997 prevê procedimento específico para consolidação da propriedade fiduciária de bens imóveis.
+
+RESUMO TECNICO:
+A execução extrajudicial imobiliária possui requisitos próprios distintos da alienação fiduciária de veículos.
+
+APLICACAO PRATICA:
+Importante para evitar confusão entre regimes jurídicos distintos.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A Lei 9.514/1997 prevê procedimento específico para consolidação da propriedade fiduciária de bens imóveis. A execução extrajudicial imobiliária possui requisitos próprios distintos da alienação fiduciária de veículos."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: REV-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm
+
+O QUE CONFERIR:
+Tratamento excessivamente amplo do cabimento da revisional; referências genéricas a tutela de urgência; vinculação automática entre revisão contratual e suspensão de cobrança.
+
+TEXTO/TESE A CONFERIR:
+O CDC e a legislação civil permitem controle judicial de cláusulas abusivas e revisão contratual nas hipóteses legalmente admitidas.
+
+RESUMO TECNICO:
+A revisão contratual exige demonstração concreta da ilegalidade ou abusividade alegada.
+
+APLICACAO PRATICA:
+Necessária análise do contrato, dos encargos cobrados e da jurisprudência aplicável.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O CDC e a legislação civil permitem controle judicial de cláusulas abusivas e revisão contratual nas hipóteses legalmente admitidas. A revisão contratual exige demonstração concreta da ilegalidade ou abusividade alegada."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: REV-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=953
+
+O QUE CONFERIR:
+Mistura relevante entre Tema 953 e Tema 958; associação indevida entre tarifas bancárias e seguros; simplificação excessiva das hipóteses de devolução de valores.
+
+TEXTO/TESE A CONFERIR:
+O Tema 953 trata da legalidade de tarifas bancárias e encargos acessórios em contratos de crédito, observados os limites definidos pela regulamentação e pela jurisprudência.
+
+RESUMO TECNICO:
+Tarifas e encargos devem ser analisados conforme o período contratual e a regulamentação vigente à época da contratação.
+
+APLICACAO PRATICA:
+Exige verificação individualizada das cobranças realizadas no contrato.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Tema 953 trata da legalidade de tarifas bancárias e encargos acessórios em contratos de crédito, observados os limites definidos pela regulamentação e pela jurisprudência. Tarifas e encargos devem ser analisados conforme o período contratual e a regulamentação vigente à época d"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: REV-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumulas/toc.jsp
+
+O QUE CONFERIR:
+Risco elevado de citação incorreta da Súmula 530/STJ; tratamento excessivamente simplificado da taxa média BACEN como parâmetro de abusividade.
+
+TEXTO/TESE A CONFERIR:
+A análise dos juros remuneratórios deve observar a jurisprudência do STJ e os parâmetros de mercado divulgados pelo Banco Central.
+
+RESUMO TECNICO:
+A abusividade dos juros não decorre automaticamente da mera superação da taxa média de mercado.
+
+APLICACAO PRATICA:
+Necessária comparação entre taxa contratada e parâmetros aplicáveis à modalidade de crédito.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A análise dos juros remuneratórios deve observar a jurisprudência do STJ e os parâmetros de mercado divulgados pelo Banco Central. A abusividade dos juros não decorre automaticamente da mera superação da taxa média de mercado."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: REV-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=973
+
+O QUE CONFERIR:
+Simplificação excessiva do Tema 973; critérios de pactuação expressa e identificação da capitalização foram apresentados de forma mais rígida do que a jurisprudência consolidada.
+
+TEXTO/TESE A CONFERIR:
+A capitalização de juros com periodicidade inferior à anual é admitida nas hipóteses legalmente autorizadas e conforme a orientação consolidada do STJ.
+
+RESUMO TECNICO:
+A validade da capitalização depende da pactuação contratual e da legislação aplicável.
+
+APLICACAO PRATICA:
+Exige análise do contrato e dos cálculos financeiros efetivamente utilizados.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A capitalização de juros com periodicidade inferior à anual é admitida nas hipóteses legalmente autorizadas e conforme a orientação consolidada do STJ. A validade da capitalização depende da pactuação contratual e da legislação aplicável."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: REV-005
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=958
+
+O QUE CONFERIR:
+Extrapolação dos efeitos do Tema 958; conclusões automáticas sobre devolução e nulidade; mistura entre liberdade de escolha e consequências patrimoniais.
+
+TEXTO/TESE A CONFERIR:
+A contratação de seguros vinculados a operações de crédito deve observar liberdade de escolha e adequada informação ao consumidor.
+
+RESUMO TECNICO:
+A legalidade da cobrança depende da forma de contratação e da documentação existente.
+
+APLICACAO PRATICA:
+Necessária verificação da contratação do seguro e da liberdade de escolha da seguradora.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A contratação de seguros vinculados a operações de crédito deve observar liberdade de escolha e adequada informação ao consumidor. A legalidade da cobrança depende da forma de contratação e da documentação existente."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: REV-006
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO_COM_AJUSTES
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumulas/toc.jsp
+
+O QUE CONFERIR:
+Pequenos ajustes de precisão técnica; necessidade de consulta direta às súmulas aplicáveis.
+
+TEXTO/TESE A CONFERIR:
+A comissão de permanência é admitida pela jurisprudência do STJ desde que observadas as limitações estabelecidas nos precedentes consolidados.
+
+RESUMO TECNICO:
+A cobrança não pode ocorrer em desacordo com as vedações relativas à cumulação indevida de encargos.
+
+APLICACAO PRATICA:
+Exige análise conjunta do contrato, dos cálculos e da jurisprudência aplicável.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A comissão de permanência é admitida pela jurisprudência do STJ desde que observadas as limitações estabelecidas nos precedentes consolidados. A cobrança não pode ocorrer em desacordo com as vedações relativas à cumulação indevida de encargos."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: REV-007
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.bcb.gov.br/estabilidadefinanceira/normativos
+
+O QUE CONFERIR:
+Referências normativas desatualizadas; algumas consequências jurídicas apresentadas como automáticas; necessidade de adequação à regulamentação vigente do Banco Central.
+
+TEXTO/TESE A CONFERIR:
+O CET representa o custo global da operação de crédito ao consumidor e deve ser informado conforme a regulamentação do Banco Central.
+
+RESUMO TECNICO:
+O objetivo do CET é garantir transparência e comparabilidade entre operações financeiras.
+
+APLICACAO PRATICA:
+Utilizado para verificar a efetiva composição dos custos informados ao consumidor.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O CET representa o custo global da operação de crédito ao consumidor e deve ser informado conforme a regulamentação do Banco Central. O objetivo do CET é garantir transparência e comparabilidade entre operações financeiras."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: FR-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumulas/toc.jsp
+
+O QUE CONFERIR:
+Tratamento automático de determinadas fraudes como fortuito interno; cautela necessária quanto ao Tema 1249/STF; conclusões absolutas sobre responsabilidade bancária.
+
+TEXTO/TESE A CONFERIR:
+Súmula 479/STJ: as instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros no âmbito de operações bancárias.
+
+RESUMO TECNICO:
+A responsabilidade depende da análise das circunstâncias concretas e da existência de falha de segurança.
+
+APLICACAO PRATICA:
+Avaliar mecanismos de prevenção, conduta da vítima e eventual rompimento do nexo causal.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Súmula 479/STJ: as instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros no âmbito de operações bancárias. A responsabilidade depende da análise das circunstâncias concretas e da existência "
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: FR-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm
+
+O QUE CONFERIR:
+Afirmações categóricas sobre responsabilidade bancária; reprodução de entendimento doutrinário como jurisprudência consolidada; ausência de diferenciação entre culpa exclusiva, concorrente e inexistente da vítima.
+
+TEXTO/TESE A CONFERIR:
+O golpe do motoboy consiste em fraude baseada em engenharia social para obtenção de cartões, senhas ou dados da vítima.
+
+RESUMO TECNICO:
+A responsabilização da instituição financeira depende das circunstâncias concretas do caso.
+
+APLICACAO PRATICA:
+Analisar falhas de segurança, comportamento da vítima e mecanismos de prevenção adotados pelo banco.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O golpe do motoboy consiste em fraude baseada em engenharia social para obtenção de cartões, senhas ou dados da vítima. A responsabilização da instituição financeira depende das circunstâncias concretas do caso."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: FR-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.bcb.gov.br/estabilidadefinanceira/pix
+
+O QUE CONFERIR:
+Generalização excessiva sobre responsabilidade dos bancos; ausência de diferenciação entre modalidades de fraude; conclusões absolutas incompatíveis com a jurisprudência atual.
+
+TEXTO/TESE A CONFERIR:
+O sistema PIX é regulado pelo Banco Central e possui mecanismos próprios de segurança e mitigação de fraudes.
+
+RESUMO TECNICO:
+A existência de fraude não implica automaticamente responsabilidade da instituição financeira.
+
+APLICACAO PRATICA:
+Avaliar alertas de risco, padrão de movimentação, mecanismos de segurança e conduta das partes.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O sistema PIX é regulado pelo Banco Central e possui mecanismos próprios de segurança e mitigação de fraudes. A existência de fraude não implica automaticamente responsabilidade da instituição financeira."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: FR-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm
+
+O QUE CONFERIR:
+Tratamento uniforme para modalidades distintas de fraude; ausência de critérios jurídicos para delimitação da responsabilidade.
+
+TEXTO/TESE A CONFERIR:
+Fraudes por engenharia social envolvem manipulação da vítima para obtenção de credenciais ou acesso indevido a recursos financeiros.
+
+RESUMO TECNICO:
+A responsabilidade deve ser definida conforme os fatos concretos e a prova produzida.
+
+APLICACAO PRATICA:
+Diferenciar phishing, spoofing, falso suporte técnico e falsa central bancária.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Fraudes por engenharia social envolvem manipulação da vítima para obtenção de credenciais ou acesso indevido a recursos financeiros. A responsabilidade deve ser definida conforme os fatos concretos e a prova produzida."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: FR-005
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.anatel.gov.br
+
+O QUE CONFERIR:
+Generalizações sobre responsabilidade automática em casos de SIM Swap; ausência de análise específica da participação da operadora e da instituição financeira.
+
+TEXTO/TESE A CONFERIR:
+Fraudes por SIM Swap envolvem transferência indevida da linha telefônica para terceiro fraudador.
+
+RESUMO TECNICO:
+A responsabilidade depende da identificação da falha operacional que permitiu a fraude.
+
+APLICACAO PRATICA:
+Avaliar participação da operadora, do banco e eventual negligência de terceiros.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Fraudes por SIM Swap envolvem transferência indevida da linha telefônica para terceiro fraudador. A responsabilidade depende da identificação da falha operacional que permitiu a fraude."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: FR-006
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.bcb.gov.br/estabilidadefinanceira/pix
+
+O QUE CONFERIR:
+Excesso de afirmações sobre deveres automáticos de bloqueio e responsabilidade solidária; tratamento simplificado do MED e das medidas cautelares.
+
+TEXTO/TESE A CONFERIR:
+O Mecanismo Especial de Devolução (MED) integra o sistema PIX para tratamento de determinadas hipóteses de fraude, observados os requisitos regulamentares.
+
+RESUMO TECNICO:
+A recuperação de valores depende do tempo decorrido, da disponibilidade dos recursos e do cumprimento dos procedimentos aplicáveis.
+
+APLICACAO PRATICA:
+Comunicar rapidamente a fraude, acionar o MED e avaliar medidas judiciais adequadas ao caso.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Mecanismo Especial de Devolução (MED) integra o sistema PIX para tratamento de determinadas hipóteses de fraude, observados os requisitos regulamentares. A recuperação de valores depende do tempo decorrido, da disponibilidade dos recursos e do cumprimento dos procedimentos apli"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+================================================================================
+02 - RMC/RCC E SUPERENDIVIDAMENTO
+================================================================================
+
+ID: RMC-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/2003/l10.820compilado.htm
+
+O QUE CONFERIR:
+Lei 1.046/1950 não constitui fonte principal atual do regime de consignação; Resolução BCB 96/2021 não disciplina de forma geral beneficiários do INSS; percentuais de margem consignável dependem da legislação vigente e alterações posteriores; afirmação sobre tutela do TJSC sem processo identificado.
+
+TEXTO/TESE A CONFERIR:
+Lei 10.820/2003 disciplina a autorização para desconto de prestações em folha de pagamento.
+
+RESUMO TECNICO:
+O crédito consignado é modalidade sujeita a autorização legal de desconto em folha ou benefício, observados os limites previstos na legislação aplicável.
+
+APLICACAO PRATICA:
+Verificar a legislação vigente específica da categoria do tomador antes de definir margem consignável e modalidades de contratação.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Lei 10.820/2003 disciplina a autorização para desconto de prestações em folha de pagamento. O crédito consignado é modalidade sujeita a autorização legal de desconto em folha ou benefício, observados os limites previstos na legislação aplicável."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: RMC-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?cod_tema_final=1085&cod_tema_inicial=1085&novaConsulta=true&tipo_pesquisa=T
+
+O QUE CONFERIR:
+O Tema 1085 do STJ não trata de RMC ou RCC. O tema versa sobre descontos de parcelas de empréstimos comuns em conta-corrente e sobre a inaplicabilidade por analogia dos limites da Lei 10.820/2003. As teses, conceitos e conclusões atribuídos ao Tema 1085 no registro não correspondem ao tema repetitivo oficial.
+
+TEXTO/TESE A CONFERIR:
+Tema 1085 do STJ: validade dos descontos de parcelas de empréstimo em conta-corrente quando expressamente autorizados pelo mutuário e impossibilidade de aplicação analógica dos limites da consignação em folha.
+
+RESUMO TECNICO:
+O conteúdo do registro diverge substancialmente do objeto do Tema 1085.
+
+APLICACAO PRATICA:
+Não utilizar o Tema 1085 como fundamento específico para RMC ou RCC sem fonte jurisprudencial correspondente.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Tema 1085 do STJ: validade dos descontos de parcelas de empréstimo em conta-corrente quando expressamente autorizados pelo mutuário e impossibilidade de aplicação analógica dos limites da consignação em folha. O conteúdo do registro diverge substancialmente do objeto do Tema 1085"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: RMC-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/2002/l10406compilada.htm
+
+O QUE CONFERIR:
+Afirmações sobre litigiosidade, práticas predominantes e concessão de liminares pelo TJSC sem indicação de processo; mistura fundamentos legais com estratégia processual; ausência de fonte específica para RMC e RCC.
+
+TEXTO/TESE A CONFERIR:
+Os arts. 138 a 165 do Código Civil disciplinam hipóteses de vício de consentimento.
+
+RESUMO TECNICO:
+Contratações sem consentimento válido podem ser questionadas com fundamento em vícios de consentimento e dever de informação.
+
+APLICACAO PRATICA:
+Conferir a documentação contratual, a autoria das assinaturas e os elementos de consentimento antes de concluir pela validade da contratação.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Os arts. 138 a 165 do Código Civil disciplinam hipóteses de vício de consentimento. Contratações sem consentimento válido podem ser questionadas com fundamento em vícios de consentimento e dever de informação."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: RMC-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm#art54a
+
+O QUE CONFERIR:
+O CDC art. 54-A §1º não estabelece garantia de recebimento líquido equivalente a um salário mínimo; a afirmação de ilegalidade automática de qualquer desconto abaixo desse patamar não possui suporte expresso no dispositivo legal citado; conteúdo mistura estratégia processual com texto normativo.
+
+TEXTO/TESE A CONFERIR:
+O art. 54-A §1º do CDC define superendividamento como a impossibilidade manifesta de pagar a totalidade das dívidas de consumo sem comprometer o mínimo existencial.
+
+RESUMO TECNICO:
+A proteção legal está voltada à preservação do mínimo existencial e à repactuação de dívidas do consumidor superendividado.
+
+APLICACAO PRATICA:
+A análise deve considerar renda, descontos efetivos, contratos vigentes e enquadramento nos requisitos legais do superendividamento.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O art. 54-A §1º do CDC define superendividamento como a impossibilidade manifesta de pagar a totalidade das dívidas de consumo sem comprometer o mínimo existencial. A proteção legal está voltada à preservação do mínimo existencial e à repactuação de dívidas do consumidor superend"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: SE-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2021/lei/l14181.htm
+
+O QUE CONFERIR:
+A exclusão de determinadas espécies de dívida não decorre literalmente do art. 54-A; a afirmação de que a boa-fé é presumida não consta expressamente do texto legal; parte do conteúdo possui caráter interpretativo.
+
+TEXTO/TESE A CONFERIR:
+O art. 54-A §1º do CDC define superendividamento como a impossibilidade manifesta de o consumidor pessoa natural, de boa-fé, pagar a totalidade de suas dívidas de consumo sem comprometer seu mínimo existencial.
+
+RESUMO TECNICO:
+A Lei 14.181/2021 introduziu o regime legal do superendividamento no CDC.
+
+APLICACAO PRATICA:
+Verificar a presença dos requisitos legais antes de enquadrar o consumidor como superendividado.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O art. 54-A §1º do CDC define superendividamento como a impossibilidade manifesta de o consumidor pessoa natural, de boa-fé, pagar a totalidade de suas dívidas de consumo sem comprometer seu mínimo existencial. A Lei 14.181/2021 introduziu o regime legal do superendividamento no "
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: SE-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm#art104a
+
+O QUE CONFERIR:
+O art. 104-C não prevê pagamento mínimo de 12% para cada credor; não estabelece prazo mínimo de 5 anos nos termos descritos; a dispensa de advogado não decorre do dispositivo legal; o registro mistura procedimento legal e estratégia processual.
+
+TEXTO/TESE A CONFERIR:
+Os arts. 104-A a 104-C do CDC disciplinam a repactuação de dívidas do consumidor superendividado mediante procedimento conciliatório e eventual plano judicial compulsório.
+
+RESUMO TECNICO:
+A legislação busca promover solução global e negociada das dívidas de consumo.
+
+APLICACAO PRATICA:
+A elaboração do plano deve observar os requisitos expressamente previstos no CDC.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Os arts. 104-A a 104-C do CDC disciplinam a repactuação de dívidas do consumidor superendividado mediante procedimento conciliatório e eventual plano judicial compulsório. A legislação busca promover solução global e negociada das dívidas de consumo."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: SE-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm
+
+O QUE CONFERIR:
+Não existe regra legal geral determinando que beneficiário do INSS receba necessariamente valor líquido superior a um salário mínimo; referência a entendimento predominante sem indicação de precedente; conteúdo predominantemente doutrinário.
+
+TEXTO/TESE A CONFERIR:
+A Constituição Federal consagra a dignidade da pessoa humana e os direitos sociais como fundamentos de proteção da pessoa.
+
+RESUMO TECNICO:
+O conceito de mínimo existencial é utilizado como parâmetro de proteção da dignidade humana e do consumidor superendividado.
+
+APLICACAO PRATICA:
+A aferição do mínimo existencial depende das circunstâncias concretas de cada caso.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A Constituição Federal consagra a dignidade da pessoa humana e os direitos sociais como fundamentos de proteção da pessoa. O conceito de mínimo existencial é utilizado como parâmetro de proteção da dignidade humana e do consumidor superendividado."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: SE-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm#art54d
+
+O QUE CONFERIR:
+O art. 54-D do CDC não contém as hipóteses de nulidade descritas no registro; não prevê nulidade por cobrança de juros acima de limite nem disciplina renovação automática nos termos apresentados; referência ao TJSC sem identificação de processo ou precedente específico.
+
+TEXTO/TESE A CONFERIR:
+O art. 54-D do CDC estabelece deveres do fornecedor na oferta de crédito e na prevenção do superendividamento.
+
+RESUMO TECNICO:
+A proteção contra práticas abusivas em operações de crédito decorre da combinação dos deveres de informação, boa-fé e prevenção do superendividamento.
+
+APLICACAO PRATICA:
+A validade das cláusulas deve ser examinada à luz do contrato concreto e dos dispositivos do CDC aplicáveis.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O art. 54-D do CDC estabelece deveres do fornecedor na oferta de crédito e na prevenção do superendividamento. A proteção contra práticas abusivas em operações de crédito decorre da combinação dos deveres de informação, boa-fé e prevenção do superendividamento."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+================================================================================
+03 - CALCULOS E PROVAS DIGITAIS
+================================================================================
+
+ID: CA-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/mpv/2170-36.htm
+
+O QUE CONFERIR:
+Tema 973 não autoriza concluir que toda utilização da Tabela Price é lícita; a controvérsia sobre capitalização exige análise contratual. A afirmação de que diferença superior a 0,5% indica erro de cálculo não possui fonte normativa ou jurisprudencial oficial identificada.
+
+TEXTO/TESE A CONFERIR:
+A MP 2.170-36/2001 admite capitalização com periodicidade inferior a um ano nas operações realizadas por instituições integrantes do Sistema Financeiro Nacional, observadas as condições legais e contratuais.
+
+RESUMO TECNICO:
+A utilização da Tabela Price não permite, por si só, concluir pela existência ou inexistência de anatocismo. A validade da capitalização depende da legislação aplicável e da pactuação contratual.
+
+APLICACAO PRATICA:
+Verificar o contrato, a forma de pactuação dos juros e a metodologia efetivamente utilizada no cálculo antes de afirmar regularidade ou irregularidade.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A MP 2.170-36/2001 admite capitalização com periodicidade inferior a um ano nas operações realizadas por instituições integrantes do Sistema Financeiro Nacional, observadas as condições legais e contratuais. A utilização da Tabela Price não permite, por si só, concluir pela exist"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: CA-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l4380.htm
+
+O QUE CONFERIR:
+Foi atribuída à Súmula 567 do STJ uma redação que não corresponde ao texto oficial. A descrição do SACRE e sua vinculação automática à TR ou IPCA carecem de fonte oficial específica. A alegação de que SAC sempre gera menor custo depende das condições do contrato.
+
+TEXTO/TESE A CONFERIR:
+A legislação do Sistema Financeiro da Habitação admite diferentes sistemas de amortização conforme regulamentação e condições contratuais.
+
+RESUMO TECNICO:
+SAC e Price são sistemas distintos de amortização. A legalidade e o impacto econômico dependem da forma de contratação e execução do contrato.
+
+APLICACAO PRATICA:
+Identificar o sistema contratado e reproduzir os cálculos com base nas cláusulas efetivamente pactuadas.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A legislação do Sistema Financeiro da Habitação admite diferentes sistemas de amortização conforme regulamentação e condições contratuais. SAC e Price são sistemas distintos de amortização. A legalidade e o impacto econômico dependem da forma de contratação e execução do contrato"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: CA-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.bcb.gov.br/content/estabilidadefinanceira/cet/FAQ_CET.pdf
+
+O QUE CONFERIR:
+A referência à 'Resolução BCB 4/2020' está incorreta ou insuficiente. A fórmula apresentada para cálculo anual do CET simplifica excessivamente a metodologia. A afirmação de restituição automática de encargos não informados extrapola a regulamentação.
+
+TEXTO/TESE A CONFERIR:
+O Custo Efetivo Total representa o custo total da operação de crédito, expresso na forma de taxa percentual anual, considerando fluxos referentes às liberações e pagamentos previstos.
+
+RESUMO TECNICO:
+O CET deve refletir os encargos e despesas informados na operação segundo a regulamentação do Banco Central.
+
+APLICACAO PRATICA:
+Conferir o CET informado no contrato e comparar com os fluxos financeiros efetivamente cobrados.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Custo Efetivo Total representa o custo total da operação de crédito, expresso na forma de taxa percentual anual, considerando fluxos referentes às liberações e pagamentos previstos. O CET deve refletir os encargos e despesas informados na operação segundo a regulamentação do Ba"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: CA-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm#art52
+
+O QUE CONFERIR:
+A menção à Súmula Vinculante 7 do STF está incorreta para fundamentar juros remuneratórios bancários. A descrição da Súmula 530 do STJ exige conferência literal. Há simplificações sobre limites de juros e encargos de inadimplência.
+
+TEXTO/TESE A CONFERIR:
+O art. 52, §1º, do CDC limita a multa de mora em relações de consumo a dois por cento do valor da prestação.
+
+RESUMO TECNICO:
+Juros remuneratórios e moratórios possuem naturezas distintas e devem ser analisados conforme contrato, legislação e jurisprudência aplicável.
+
+APLICACAO PRATICA:
+Verificar individualmente juros remuneratórios, juros de mora, multa e eventual comissão de permanência para identificar cumulações indevidas.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O art. 52, §1º, do CDC limita a multa de mora em relações de consumo a dois por cento do valor da prestação. Juros remuneratórios e moratórios possuem naturezas distintas e devem ser analisados conforme contrato, legislação e jurisprudência aplicável."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: CA-005
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://portal.stf.jus.br/jurisprudenciaRepercussao/verAndamentoProcesso.asp?incidente=4754304&numeroProcesso=870947&classeProcesso=RE&numeroTema=810
+
+O QUE CONFERIR:
+O Tema 810 do STF trata principalmente de condenações impostas à Fazenda Pública e não estabelece regra geral para toda atualização de débitos civis privados. A afirmação sobre substituição ampla da TR por IPCA-E em contratos privados extrapola a tese.
+
+TEXTO/TESE A CONFERIR:
+No Tema 810, o STF definiu critérios de atualização monetária e juros aplicáveis às condenações impostas à Fazenda Pública.
+
+RESUMO TECNICO:
+A escolha do índice de correção monetária depende da natureza da obrigação, da legislação aplicável e da jurisprudência específica.
+
+APLICACAO PRATICA:
+Não aplicar automaticamente a tese do Tema 810 a contratos bancários privados sem análise do contexto jurídico correspondente.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"No Tema 810, o STF definiu critérios de atualização monetária e juros aplicáveis às condenações impostas à Fazenda Pública. A escolha do índice de correção monetária depende da natureza da obrigação, da legislação aplicável e da jurisprudência específica."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: CA-006
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm
+
+O QUE CONFERIR:
+Não foram localizadas divergências materiais relevantes; parte do conteúdo possui caráter metodológico e não normativo.
+
+TEXTO/TESE A CONFERIR:
+O CPC admite produção de prova pericial e memória de cálculo, exigindo demonstração dos critérios utilizados quando relevantes ao deslinde da controvérsia.
+
+RESUMO TECNICO:
+Planilhas de evolução do débito devem permitir reprodução dos cálculos e identificação das premissas adotadas.
+
+APLICACAO PRATICA:
+Apresentar memória de cálculo completa, indicando fontes, índices, taxas e metodologia empregada.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O CPC admite produção de prova pericial e memória de cálculo, exigindo demonstração dos critérios utilizados quando relevantes ao deslinde da controvérsia. Planilhas de evolução do débito devem permitir reprodução dos cálculos e identificação das premissas adotadas."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: PD-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm
+
+O QUE CONFERIR:
+O art. 15 do Marco Civil não estabelece os prazos descritos para provedores de conexão. Há confusão entre os arts. 13 e 15. A exigência de ata notarial para validade de prints não decorre da lei como requisito obrigatório.
+
+TEXTO/TESE A CONFERIR:
+O Marco Civil da Internet disciplina a guarda de registros de conexão e de acesso a aplicações de internet por prazos específicos definidos em seus arts. 13 e 15.
+
+RESUMO TECNICO:
+Provas digitais são admissíveis, mas sua força probatória depende da autenticidade, integridade e contexto de produção.
+
+APLICACAO PRATICA:
+Preservar registros eletrônicos rapidamente e documentar a origem dos arquivos e capturas utilizadas.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Marco Civil da Internet disciplina a guarda de registros de conexão e de acesso a aplicações de internet por prazos específicos definidos em seus arts. 13 e 15. Provas digitais são admissíveis, mas sua força probatória depende da autenticidade, integridade e contexto de produçã"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: PD-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l12965.htm
+
+O QUE CONFERIR:
+Os prazos de retenção atribuídos a bancos não possuem fonte oficial indicada. Os períodos de guarda previstos no Marco Civil foram simplificados de forma imprecisa. A disponibilidade de dados de Google, Apple e operadoras depende de requisitos legais específicos.
+
+TEXTO/TESE A CONFERIR:
+Os arts. 13 e 15 do Marco Civil disciplinam a guarda de registros de conexão e de acesso a aplicações de internet.
+
+RESUMO TECNICO:
+A obtenção judicial de registros eletrônicos depende da natureza dos dados, da legislação aplicável e da disponibilidade do provedor responsável.
+
+APLICACAO PRATICA:
+Solicitar preservação e exibição de registros o mais cedo possível, indicando precisamente quais dados são necessários.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Os arts. 13 e 15 do Marco Civil disciplinam a guarda de registros de conexão e de acesso a aplicações de internet. A obtenção judicial de registros eletrônicos depende da natureza dos dados, da legislação aplicável e da disponibilidade do provedor responsável."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: PD-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm#art384
+
+O QUE CONFERIR:
+O CPC art. 384 e a Lei 8.935/1994 admitem a ata notarial como meio de documenta??o de fatos, por?m a afirma??o de que ? 'o meio mais robusto' possui car?ter opinativo. A alega??o de que o banco teria dificuldade de impugna??o por depender de demonstra??o de falsidade ideol?gica extrapola o texto legal. Os valores de custo informados n?o possuem fonte oficial normativa.
+
+TEXTO/TESE A CONFERIR:
+O CPC art. 384 disp?e que a exist?ncia e o modo de existir de algum fato podem ser atestados ou documentados por ata lavrada por tabeli?o. A Lei 8.935/1994 atribui compet?ncia ao tabeli?o para formalizar juridicamente a vontade das partes e autenticar fatos.
+
+RESUMO TECNICO:
+A ata notarial ? instrumento legalmente reconhecido para documentar conte?dos digitais e fatos observados pelo tabeli?o, conferindo maior seguran?a probat?ria ao material registrado.
+
+APLICACAO PRATICA:
+Pode ser utilizada para documentar conversas, p?ginas eletr?nicas, e-mails, capturas de tela e outros conte?dos digitais relevantes para futura produ??o de prova judicial.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O CPC art. 384 disp?e que a exist?ncia e o modo de existir de algum fato podem ser atestados ou documentados por ata lavrada por tabeli?o. A Lei 8.935/1994 atribui compet?ncia ao tabeli?o para formalizar juridicamente a vontade das partes e autenticar fatos. A ata notarial ? inst"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: PD-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm#art156
+
+O QUE CONFERIR:
+A necessidade de per?cia cont?bil depende das circunst?ncias do caso concreto e n?o pode ser considerada essencial em toda a??o revisional ou execu??o banc?ria. As refer?ncias a exclus?o autom?tica de tarifas vedadas e normaliza??o obrigat?ria da capitaliza??o pressup?em conclus?o jur?dica n?o confirmada previamente. Os valores de honor?rios mencionados n?o possuem fonte oficial normativa.
+
+TEXTO/TESE A CONFERIR:
+O CPC prev? que o juiz ser? assistido por perito quando a prova do fato depender de conhecimento t?cnico ou cient?fico e disciplina a nomea??o de peritos, assistentes t?cnicos e apresenta??o de laudos periciais.
+
+RESUMO TECNICO:
+A per?cia cont?bil ? meio de prova adequado quando a controv?rsia envolve c?lculos complexos, metodologia financeira ou diverg?ncia t?cnica relevante entre as partes.
+
+APLICACAO PRATICA:
+Os quesitos devem ser formulados de modo objetivo e vinculados ?s controv?rsias efetivamente existentes no contrato e nos c?lculos discutidos em ju?zo.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O CPC prev? que o juiz ser? assistido por perito quando a prova do fato depender de conhecimento t?cnico ou cient?fico e disciplina a nomea??o de peritos, assistentes t?cnicos e apresenta??o de laudos periciais. A per?cia cont?bil ? meio de prova adequado quando a controv?rsia en"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+================================================================================
+04 - JURISPRUDENCIA PARTE 1 (PARCIAL - FALTA JV-010)
+================================================================================
+
+ID: JV-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumstj/toc.jsp
+
+O QUE CONFERIR:
+
+
+TEXTO/TESE A CONFERIR:
+O Código de Defesa do Consumidor é aplicável às instituições financeiras.
+
+RESUMO TECNICO:
+A Súmula 297 consolidou a incidência do CDC nas relações entre consumidores e instituições financeiras.
+
+APLICACAO PRATICA:
+Permite invocar normas protetivas do CDC em demandas bancárias.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Código de Defesa do Consumidor é aplicável às instituições financeiras. A Súmula 297 consolidou a incidência do CDC nas relações entre consumidores e instituições financeiras."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumstj/toc.jsp
+
+O QUE CONFERIR:
+
+
+TEXTO/TESE A CONFERIR:
+Nos contratos bancários, na impossibilidade de comprovar a taxa de juros efetivamente contratada — por ausência de pactuação ou pela falta de juntada do instrumento aos autos —, aplica-se a taxa média de mercado divulgada pelo Bacen, praticada nas operações da mesma espécie, salvo se a taxa cobrada for mais vantajosa para o devedor.
+
+RESUMO TECNICO:
+Na ausência de comprovação da taxa contratada, utiliza-se a taxa média de mercado divulgada pelo Banco Central.
+
+APLICACAO PRATICA:
+Exigir o contrato antes de discutir abusividade dos juros remuneratórios.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Nos contratos bancários, na impossibilidade de comprovar a taxa de juros efetivamente contratada — por ausência de pactuação ou pela falta de juntada do instrumento aos autos —, aplica-se a taxa média de mercado divulgada pelo Bacen, praticada nas operações da mesma espécie, salv"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumstj/toc.jsp
+
+O QUE CONFERIR:
+A redação resumida simplifica a exigência de pactuação expressa.
+
+TEXTO/TESE A CONFERIR:
+É permitida a capitalização de juros com periodicidade inferior à anual em contratos celebrados com instituições integrantes do Sistema Financeiro Nacional a partir de 31/3/2000, desde que expressamente pactuada.
+
+RESUMO TECNICO:
+A capitalização inferior à anual é admitida quando houver previsão contratual expressa.
+
+APLICACAO PRATICA:
+Conferir a existência de cláusula contratual específica sobre capitalização.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"É permitida a capitalização de juros com periodicidade inferior à anual em contratos celebrados com instituições integrantes do Sistema Financeiro Nacional a partir de 31/3/2000, desde que expressamente pactuada. A capitalização inferior à anual é admitida quando houver previsão "
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumstj/toc.jsp
+
+O QUE CONFERIR:
+
+
+TEXTO/TESE A CONFERIR:
+Incumbe ao credor a exclusão do registro da dívida em nome do devedor no cadastro de inadimplentes no prazo de cinco dias úteis, a partir do integral e efetivo pagamento do débito.
+
+RESUMO TECNICO:
+O dever de providenciar a baixa da negativação é do credor.
+
+APLICACAO PRATICA:
+Após a quitação, pode haver responsabilização por manutenção indevida do apontamento.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Incumbe ao credor a exclusão do registro da dívida em nome do devedor no cadastro de inadimplentes no prazo de cinco dias úteis, a partir do integral e efetivo pagamento do débito. O dever de providenciar a baixa da negativação é do credor."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-005
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumstj/toc.jsp
+
+O QUE CONFERIR:
+
+
+TEXTO/TESE A CONFERIR:
+A utilização de escore de crédito (credit scoring), método estatístico de avaliação de risco que não constitui banco de dados, dispensa o consentimento do consumidor, que terá o direito de solicitar esclarecimentos sobre as informações pessoais valoradas e as fontes dos dados considerados no respectivo cálculo.
+
+RESUMO TECNICO:
+O credit scoring não depende de consentimento prévio, mas admite pedido de esclarecimentos pelo consumidor.
+
+APLICACAO PRATICA:
+Questionamentos devem se concentrar na transparência e na origem dos dados utilizados.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A utilização de escore de crédito (credit scoring), método estatístico de avaliação de risco que não constitui banco de dados, dispensa o consentimento do consumidor, que terá o direito de solicitar esclarecimentos sobre as informações pessoais valoradas e as fontes dos dados con"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-006
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumstj/toc.jsp
+
+O QUE CONFERIR:
+
+
+TEXTO/TESE A CONFERIR:
+Nos contratos bancários posteriores ao início da vigência da Resolução-CMN n. 3.518/2007, em 30/4/2008, pode ser cobrada a tarifa de cadastro no início do relacionamento entre o consumidor e a instituição financeira.
+
+RESUMO TECNICO:
+A tarifa de cadastro é admitida apenas no início do relacionamento bancário.
+
+APLICACAO PRATICA:
+Verificar se já existia relacionamento anterior entre cliente e instituição.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Nos contratos bancários posteriores ao início da vigência da Resolução-CMN n. 3.518/2007, em 30/4/2008, pode ser cobrada a tarifa de cadastro no início do relacionamento entre o consumidor e a instituição financeira. A tarifa de cadastro é admitida apenas no início do relacioname"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-007
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumstj/toc.jsp
+
+O QUE CONFERIR:
+
+
+TEXTO/TESE A CONFERIR:
+A cobrança de comissão de permanência — cujo valor não pode ultrapassar a soma dos encargos remuneratórios e moratórios previstos no contrato — exclui a exigibilidade dos juros remuneratórios, moratórios e da multa contratual.
+
+RESUMO TECNICO:
+A comissão de permanência não pode ser cumulada com outros encargos de mora.
+
+APLICACAO PRATICA:
+Revisar contratos e planilhas para identificar cumulações indevidas.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A cobrança de comissão de permanência — cujo valor não pode ultrapassar a soma dos encargos remuneratórios e moratórios previstos no contrato — exclui a exigibilidade dos juros remuneratórios, moratórios e da multa contratual. A comissão de permanência não pode ser cumulada com o"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-008
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumstj/toc.jsp
+
+O QUE CONFERIR:
+
+
+TEXTO/TESE A CONFERIR:
+Da anotação irregular em cadastro de proteção ao crédito, não cabe indenização por dano moral, quando preexistente legítima inscrição, ressalvado o direito ao cancelamento.
+
+RESUMO TECNICO:
+A existência de inscrição legítima anterior afasta, em regra, o dano moral presumido.
+
+APLICACAO PRATICA:
+Analisar a existência de apontamentos válidos anteriores antes de pleitear indenização.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Da anotação irregular em cadastro de proteção ao crédito, não cabe indenização por dano moral, quando preexistente legítima inscrição, ressalvado o direito ao cancelamento. A existência de inscrição legítima anterior afasta, em regra, o dano moral presumido."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-009
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=953
+
+O QUE CONFERIR:
+O registro mistura matérias dos Temas 953 e 958. A referência a seguro prestamista e livre escolha de seguradora não integra a tese do Tema 953. Há fusão indevida entre tarifas bancárias e seguros.
+
+TEXTO/TESE A CONFERIR:
+O Tema 953 trata da validade de tarifas bancárias, incluindo tarifa de cadastro e encargos acessórios, conforme a tese repetitiva fixada pelo STJ.
+
+RESUMO TECNICO:
+O tema deve permanecer restrito às controvérsias sobre tarifas e encargos bancários.
+
+APLICACAO PRATICA:
+Não utilizar o Tema 953 como fundamento para venda casada de seguros ou seguro prestamista.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Tema 953 trata da validade de tarifas bancárias, incluindo tarifa de cadastro e encargos acessórios, conforme a tese repetitiva fixada pelo STJ. O tema deve permanecer restrito às controvérsias sobre tarifas e encargos bancários."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-011
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=973
+
+O QUE CONFERIR:
+A redação apresentada é resumida e não substitui a leitura integral da tese repetitiva.
+
+TEXTO/TESE A CONFERIR:
+A capitalização de juros com periodicidade inferior à anual é admitida nas hipóteses reconhecidas pelo STJ, observada a pactuação expressa e a legislação aplicável.
+
+RESUMO TECNICO:
+O tema consolida entendimento sobre capitalização inferior à anual em contratos bancários.
+
+APLICACAO PRATICA:
+Examinar a cláusula contratual e a forma efetiva de cálculo dos juros.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A capitalização de juros com periodicidade inferior à anual é admitida nas hipóteses reconhecidas pelo STJ, observada a pactuação expressa e a legislação aplicável. O tema consolida entendimento sobre capitalização inferior à anual em contratos bancários."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: JV-012
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=1085
+
+O QUE CONFERIR:
+O Tema 1085 não trata de RMC ou RCC. O tema versa sobre descontos em conta-corrente decorrentes de empréstimos comuns e sobre a impossibilidade de aplicação analógica dos limites da Lei 10.820/2003.
+
+TEXTO/TESE A CONFERIR:
+O Tema 1085 do STJ examina a validade dos descontos em conta-corrente autorizados contratualmente e a inaplicabilidade dos limites da consignação em folha por analogia.
+
+RESUMO TECNICO:
+O conteúdo do registro não corresponde ao objeto oficial do Tema 1085.
+
+APLICACAO PRATICA:
+Não utilizar o Tema 1085 como fundamento específico para cartão consignado, RMC ou RCC.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"O Tema 1085 do STJ examina a validade dos descontos em conta-corrente autorizados contratualmente e a inaplicabilidade dos limites da consignação em folha por analogia. O conteúdo do registro não corresponde ao objeto oficial do Tema 1085."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+================================================================================
+05 - JURISPRUDENCIA PARTE 2
+================================================================================
+
+ID: JV-013
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=1132
+
+O QUE CONFERIR:
+Nenhuma divergência material identificada no resumo apresentado. Recomenda-se apenas conferência da redação literal vigente da tese repetitiva antes de citação processual.
+
+TEXTO/TESE A CONFERIR:
+A notificação extrajudicial encaminhada ao endereço do devedor é apta à constituição em mora, independentemente de assinatura pessoal do destinatário no aviso de recebimento, desde que comprovada a entrega no endereço indicado. A purgação da mora não é admitida após a consolidação da propriedade fiduciária.
+
+RESUMO TECNICO:
+O Tema 1132 consolidou entendimento sobre constituição em mora na alienação fiduciária e limites para purgação da mora.
+
+APLICACAO PRATICA:
+Em ações de busca e apreensão, a validade da notificação depende da comprovação da entrega no endereço do devedor, não da assinatura pessoal no AR.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"A notificação extrajudicial encaminhada ao endereço do devedor é apta à constituição em mora, independentemente de assinatura pessoal do destinatário no aviso de recebimento, desde que comprovada a entrega no endereço indicado. A purgação da mora não é admitida após a consolidaçã"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-001
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumulas/doc.jsp?livre=@num='296'
+
+O QUE CONFERIR:
+Não foram identificadas divergências materiais relevantes no texto informado.
+
+TEXTO/TESE A CONFERIR:
+Os juros remuneratórios, não cumuláveis com a comissão de permanência, são devidos no período de inadimplência, à taxa média de mercado estipulada pelo Banco Central do Brasil, limitada ao percentual contratado.
+
+RESUMO TECNICO:
+A súmula disciplina a incidência de juros remuneratórios durante a inadimplência quando não cumulados com comissão de permanência.
+
+APLICACAO PRATICA:
+Utilizada para análise de contratos bancários em revisão de encargos de mora.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Os juros remuneratórios, não cumuláveis com a comissão de permanência, são devidos no período de inadimplência, à taxa média de mercado estipulada pelo Banco Central do Brasil, limitada ao percentual contratado. A súmula disciplina a incidência de juros remuneratórios durante a i"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-002
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://scon.stj.jus.br/SCON/sumulas/doc.jsp?livre=@num='294'
+
+O QUE CONFERIR:
+Não foram identificadas divergências materiais relevantes no texto informado.
+
+TEXTO/TESE A CONFERIR:
+Não é potestativa a cláusula contratual que prevê a comissão de permanência calculada pela taxa média de mercado apurada pelo Banco Central do Brasil, limitada à taxa do contrato.
+
+RESUMO TECNICO:
+A cláusula de comissão de permanência vinculada à taxa média BACEN não é considerada potestativa quando limitada à taxa contratada.
+
+APLICACAO PRATICA:
+Usada em discussões sobre legalidade de comissão de permanência em contratos bancários.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Não é potestativa a cláusula contratual que prevê a comissão de permanência calculada pela taxa média de mercado apurada pelo Banco Central do Brasil, limitada à taxa do contrato. A cláusula de comissão de permanência vinculada à taxa média BACEN não é considerada potestativa qua"
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-003
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://portal.stf.jus.br/jurisprudenciaRepercussao/verTema.asp?numTema=1249
+
+O QUE CONFERIR:
+Tema pendente de julgamento definitivo. Não existe tese firmada. O texto deve ser tratado apenas como descrição da controvérsia submetida ao STF.
+
+TEXTO/TESE A CONFERIR:
+Repercussão geral reconhecida para discussão sobre responsabilidade civil de instituições financeiras em fraudes eletrônicas envolvendo engenharia social.
+
+RESUMO TECNICO:
+O STF ainda não firmou tese definitiva sobre a matéria.
+
+APLICACAO PRATICA:
+Não utilizar como precedente vinculante de mérito até o julgamento definitivo do tema.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Repercussão geral reconhecida para discussão sobre responsabilidade civil de instituições financeiras em fraudes eletrônicas envolvendo engenharia social. O STF ainda não firmou tese definitiva sobre a matéria."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-004
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://portal.stf.jus.br/
+
+O QUE CONFERIR:
+A formulação apresentada corresponde tradicionalmente à Súmula 479 do STJ e não foi confirmada como tese do Tema 204 do STF na forma descrita. Necessária confirmação específica do precedente indicado.
+
+TEXTO/TESE A CONFERIR:
+Não foi possível confirmar a redação apresentada como tese oficial do Tema 204 do STF apenas com os dados fornecidos.
+
+RESUMO TECNICO:
+Há risco de confusão entre precedente do STF e entendimento consolidado do STJ sobre fortuito interno.
+
+APLICACAO PRATICA:
+Conferir o inteiro teor do precedente antes de utilização em petições ou pareceres.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Não foi possível confirmar a redação apresentada como tese oficial do Tema 204 do STF apenas com os dados fornecidos. Há risco de confusão entre precedente do STF e entendimento consolidado do STJ sobre fortuito interno."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-005
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://busca.tjsc.jus.br/jurisprudencia/
+
+O QUE CONFERIR:
+Não há processo específico indicado. Valores médios indenizatórios variam conforme o caso concreto e não podem ser tratados como padrão jurisprudencial vinculante.
+
+TEXTO/TESE A CONFERIR:
+Não foi localizada tese oficial específica do TJSC correspondente ao enunciado apresentado.
+
+RESUMO TECNICO:
+Existe tendência jurisprudencial de reconhecimento de dano moral por negativação indevida, mas a quantificação depende das peculiaridades do caso.
+
+APLICACAO PRATICA:
+Pesquisar precedentes específicos antes de citar valores indenizatórios médios.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Não foi localizada tese oficial específica do TJSC correspondente ao enunciado apresentado. Existe tendência jurisprudencial de reconhecimento de dano moral por negativação indevida, mas a quantificação depende das peculiaridades do caso."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-006
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://busca.tjsc.jus.br/jurisprudencia/
+
+O QUE CONFERIR:
+Não foi indicado número de processo. A descrição representa tendência jurisprudencial e não tese oficial identificável.
+
+TEXTO/TESE A CONFERIR:
+Não foi localizada tese oficial específica do TJSC correspondente ao texto apresentado.
+
+RESUMO TECNICO:
+Há decisões reconhecendo responsabilidade bancária em determinadas hipóteses de fraude PIX, mas a análise depende das circunstâncias do caso concreto.
+
+APLICACAO PRATICA:
+Utilizar precedentes individualizados com número de processo ao fundamentar responsabilidade por golpe PIX.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Não foi localizada tese oficial específica do TJSC correspondente ao texto apresentado. Há decisões reconhecendo responsabilidade bancária em determinadas hipóteses de fraude PIX, mas a análise depende das circunstâncias do caso concreto."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-007
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://busca.tjsc.jus.br/jurisprudencia/
+
+O QUE CONFERIR:
+Não foi indicado processo específico. A afirmação descreve tendência jurisprudencial e não precedente identificado.
+
+TEXTO/TESE A CONFERIR:
+Não foi localizada tese oficial específica do TJSC correspondente ao texto apresentado.
+
+RESUMO TECNICO:
+A ausência de contratação válida pode conduzir ao reconhecimento de nulidade contratual, mas depende da prova produzida em cada processo.
+
+APLICACAO PRATICA:
+Exigir análise documental da contratação e dos elementos de consentimento do consumidor.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Não foi localizada tese oficial específica do TJSC correspondente ao texto apresentado. A ausência de contratação válida pode conduzir ao reconhecimento de nulidade contratual, mas depende da prova produzida em cada processo."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-008
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://busca.tjsc.jus.br/jurisprudencia/
+
+O QUE CONFERIR:
+Não foi informado precedente específico. A tese representa síntese interpretativa sem acórdão individualizado.
+
+TEXTO/TESE A CONFERIR:
+Não foi localizada tese oficial específica do TJSC correspondente ao texto apresentado.
+
+RESUMO TECNICO:
+A exclusão de encargos considerados ilegais pode impactar a análise da mora, mas depende do caso concreto e dos precedentes aplicáveis.
+
+APLICACAO PRATICA:
+Necessária perícia ou memória de cálculo para verificar eventual descaracterização da mora.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Não foi localizada tese oficial específica do TJSC correspondente ao texto apresentado. A exclusão de encargos considerados ilegais pode impactar a análise da mora, mas depende do caso concreto e dos precedentes aplicáveis."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-009
+Status atual: A_VERIFICAR
+Resultado da auditoria: CORRIGIR
+Fonte/URL informada: https://busca.tjsc.jus.br/jurisprudencia/
+
+O QUE CONFERIR:
+Não há processo identificado. O conceito de mínimo existencial não possui parâmetro uniforme definido pelo TJSC nos termos descritos.
+
+TEXTO/TESE A CONFERIR:
+Não foi localizada tese oficial específica do TJSC correspondente ao texto apresentado.
+
+RESUMO TECNICO:
+Existem decisões envolvendo tutela de urgência e superendividamento, mas a concessão depende dos elementos do caso concreto.
+
+APLICACAO PRATICA:
+Pesquisar precedentes específicos antes de invocar tendência jurisprudencial genérica.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Não foi localizada tese oficial específica do TJSC correspondente ao texto apresentado. Existem decisões envolvendo tutela de urgência e superendividamento, mas a concessão depende dos elementos do caso concreto."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+
+ID: AV-010
+Status atual: A_VERIFICAR
+Resultado da auditoria: CONFIRMADO
+Fonte/URL informada: https://processo.stj.jus.br/repetitivos/temas_repetitivos/pesquisa.jsp?num_tema=1112
+
+O QUE CONFERIR:
+Tema ainda em afetação, sem tese definitiva firmada. O conteúdo deve ser tratado como delimitação da controvérsia submetida a julgamento.
+
+TEXTO/TESE A CONFERIR:
+Tema afetado para definição de questões relacionadas ao superendividamento, mínimo existencial e efeitos da repactuação de dívidas.
+
+RESUMO TECNICO:
+Não existe tese repetitiva definitiva até o momento. O tema permanece dependente de julgamento.
+
+APLICACAO PRATICA:
+Evitar apresentar o tema como entendimento consolidado ou vinculante enquanto não houver julgamento definitivo.
+
+SUGESTAO DE BUSCA NO JUSBRASIL/GOOGLE:
+"Tema afetado para definição de questões relacionadas ao superendividamento, mínimo existencial e efeitos da repactuação de dívidas. Não existe tese repetitiva definitiva até o momento. O tema permanece dependente de julgamento."
+
+CAMPO PARA SUA CONFERENCIA:
+Resultado: [  ] CONFIRMADO   [  ] CORRIGIR   [  ] EXCLUIR
+URL conferida:
+Observacao:
+
+--------------------------------------------------------------------------------
+

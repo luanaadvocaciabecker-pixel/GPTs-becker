@@ -1,0 +1,34 @@
+# Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+
+# Supabase local state
+supabase/.temp/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Generated/intermediate files
+_sql_import*/
+*.log
+*.tmp
+~$*
+
+# Raw/unstable exports
+ENTREGA_CLAUDE_ORGANIZADA/
+ENTREGA_CLAUDE_REVISADA_2026_ORIGINAL/
+PARA_CODEX/
+
+# Local office/temp files
+*.bak
+*.swp
+Thumbs.db
+desktop.ini
+
