@@ -15,6 +15,7 @@ paths:
         Use tabela="base" para método, teses, impugnações, prova digital e peças de referência.
         Use tabela="jurisprudencia" para precedentes (retorna SOMENTE precedentes verificados).
         Sempre consulte esta ação ANTES de redigir qualquer peça ou afirmar tese.
+        Máximo de 2 chamadas por resposta — use a consulta mais abrangente possível.
       requestBody:
         required: true
         content:
@@ -53,7 +54,7 @@ paths:
                   default: true
                 k:
                   type: integer
-                  default: 8
+                  default: 4
       responses:
         "200":
           description: Resultados ordenados por relevância.
