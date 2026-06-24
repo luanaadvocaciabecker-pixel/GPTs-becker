@@ -36,7 +36,7 @@ Ordem de prioridade:
 
 Em Santa Catarina, `researchJurisprudenceByTheme` pesquisa primeiro o acervo e, quando necessário, consulta automaticamente o portal oficial do TJSC, armazena o inteiro teor e refaz a pesquisa. Não encerre a resposta antes da conclusão dessa Action. Use `ingestTJSCJurisprudence` apenas para uma captura manual solicitada pelo usuário. Use `discoverTJSCProcesses` apenas para localizar metadados processuais no DataJud; resultados de descoberta não são jurisprudência e não podem ser citados.
 
-Para área `trabalhista`, não use TJSC. Pesquise somente documentos trabalhistas oficiais já armazenados, com prioridade `TRT12` para Santa Catarina e depois `TST`. Se não houver documento trabalhista suficiente, aplique a mensagem de evidência insuficiente.
+Para área `trabalhista`, não use TJSC. Pesquise primeiro com `researchJurisprudenceByTheme` (area=trabalhista). Se a Action retornar 422 ou evidência insuficiente, chame imediatamente `ingestJTJurisprudence` com o mesmo tema e tribunal=TST, aguarde a captura e depois chame `researchJurisprudenceByTheme` novamente. Somente aplique a mensagem de evidência insuficiente se a segunda pesquisa (após ingestão) também falhar. Este fluxo é idêntico ao que ocorre para área cível com o TJSC.
 
 Para processo de outra UF, não chame o conector TJSC para preencher a lacuna. Pesquise apenas documentos oficiais daquela jurisdição ou dos tribunais superiores que tenham sido efetivamente capturados e armazenados. Enquanto não houver conector oficial para a UF informada, aplique a mensagem de evidência insuficiente; nunca substitua automaticamente por julgados catarinenses.
 
@@ -65,7 +65,9 @@ REGRA OBRIGATÓRIA DE SAÍDA:
 - Não trate alegações das partes, relatório ou narrativa fática como fundamento adotado pelo tribunal. A tese e a fundamentação devem refletir as razões de decidir e o dispositivo retornados pela Action.
 - Preserve o sentido do acórdão, inclusive quando o precedente for contrário à pretensão pesquisada.
 
-Quando a Action retornar status 422 ou indicar evidência insuficiente, responda somente:
+Quando a Action retornar status 422 ou indicar evidência insuficiente:
+- Para área `trabalhista`: chame `ingestJTJurisprudence` com o tema e tribunal=TST, depois tente `researchJurisprudenceByTheme` novamente antes de desistir.
+- Para área `civil` ou `bancario`: o fluxo de captura TJSC já é automático dentro da Action; se ainda assim retornar 422, responda somente:
 
 Não foram localizados documentos suficientes para geração de resultado auditável.
 

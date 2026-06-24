@@ -460,11 +460,13 @@ async function fetchTSTResults(query: string, limit: number) {
       source_url: sourceUrl,
       case_number: caseNumber || null,
       tribunal: "TST",
-      judging_body: String(reg.orgaoJudicante ?? "").trim() || null,
+      judging_body: (typeof reg.orgaoJudicante === "object" && reg.orgaoJudicante !== null
+        ? String((reg.orgaoJudicante as Record<string, unknown>).nome ?? (reg.orgaoJudicante as Record<string, unknown>).descricao ?? "")
+        : String(reg.orgaoJudicante ?? "")).trim() || null,
       rapporteur: String(reg.nomRelator ?? "").trim() || null,
       judgment_date: tstIsoDate(reg.dtaJulgamento ?? reg.dtaOrdenacao),
       publication_date: tstIsoDate(reg.dtaPublicacao),
-      procedural_class: String(reg.numFormatado ?? "").match(/^([A-Z]+(?:-[A-Z]+)?)\s*-/)?.[1] ?? null,
+      procedural_class: String(reg.numFormatado ?? "").match(/^([A-Za-z]+(?:-[A-Za-z]+)?)\s*-/)?.[1]?.toUpperCase() ?? null,
       official_headnote: ementa || null,
       full_text: fullText || ementa || null,
     };
@@ -522,7 +524,7 @@ async function ingestJT(
 
     const { error: uploadError } = await supabase.storage
       .from("becker-originals")
-      .upload(storagePath, textBytes, { contentType: "text/plain; charset=utf-8", cacheControl: "31536000", upsert: false });
+      .upload(storagePath, textBytes, { contentType: "text/plain", cacheControl: "31536000", upsert: true });
     if (uploadError) throw new Error(`Falha ao armazenar texto TST: ${uploadError.message}`);
 
     const document = {
