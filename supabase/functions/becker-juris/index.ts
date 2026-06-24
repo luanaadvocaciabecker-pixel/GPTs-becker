@@ -899,7 +899,7 @@ Deno.serve(async (req: Request) => {
   const url = new URL(req.url);
   const path = url.pathname.replace(/^.*\/becker-juris/, "") || "/";
   if (req.method === "OPTIONS") {
-    return new Response("ok", { headers: { ...jsonHeaders, "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "content-type,x-api-key" } });
+    return new Response("ok", { headers: { ...jsonHeaders, "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Headers": "content-type,x-api-key,authorization" } });
   }
   if (path === "/health") return json({ status: "ok", service: "becker-juris-supabase" });
   if (path === "/privacy") {
