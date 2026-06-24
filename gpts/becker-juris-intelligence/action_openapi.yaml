@@ -4,10 +4,10 @@ info:
   description: Pesquisa jurisprudencial auditável com rastreabilidade documental integral. Cobre cível, bancário e trabalhista.
   version: 1.2.0
 servers:
-  - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1
+  - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1/becker-juris
     description: Edge Functions do projeto Becker Juris Intelligence
 paths:
-  /research:
+  /research/theme:
     post:
       operationId: researchJurisprudenceByTheme
       summary: Pesquisa jurisprudência verificada por tema, área e jurisdição.
@@ -66,7 +66,7 @@ paths:
         "422":
           description: Evidência insuficiente — nenhum documento auditável localizado.
 
-  /ingest-tjsc:
+  /ingest/tjsc:
     post:
       operationId: ingestTJSCJurisprudence
       summary: Captura manual de acórdão do TJSC solicitada pelo usuário.
@@ -88,7 +88,7 @@ paths:
         "200":
           description: Acórdão capturado e armazenado.
 
-  /ingest-jt:
+  /ingest/jt:
     post:
       operationId: ingestJTJurisprudence
       summary: Captura manual de acórdão do TRT12 ou TST solicitada pelo usuário.
@@ -126,7 +126,7 @@ paths:
         "404":
           description: Nenhum acórdão localizado.
 
-  /discover:
+  /discover/tjsc:
     post:
       operationId: discoverTJSCProcesses
       summary: Localiza metadados processuais no DataJud (não é jurisprudência).
