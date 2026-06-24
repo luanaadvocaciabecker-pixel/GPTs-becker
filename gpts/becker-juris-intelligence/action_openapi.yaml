@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: Becker Juris Intelligence
   description: Pesquisa jurisprudencial auditável com rastreabilidade documental integral. Cobre cível, bancário e trabalhista.
-  version: 1.1.0
+  version: 1.2.0
 servers:
   - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1
     description: Edge Functions do projeto Becker Juris Intelligence
@@ -87,6 +87,44 @@ paths:
       responses:
         "200":
           description: Acórdão capturado e armazenado.
+
+  /ingest-jt:
+    post:
+      operationId: ingestJTJurisprudence
+      summary: Captura manual de acórdão do TRT12 ou TST solicitada pelo usuário.
+      description: >
+        Use apenas quando o usuário solicitar explicitamente a captura de acórdãos
+        trabalhistas do TRT12 (Santa Catarina) ou TST. Não use para preencher lacunas automaticamente.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query, methodology_id]
+              properties:
+                query:
+                  type: string
+                  description: Tema ou número de processo trabalhista.
+                tribunal:
+                  type: string
+                  enum: [TST, TRT12, TRT4, TRT9]
+                  description: Tribunal trabalhista. Padrão TRT12 para SC.
+                  default: TRT12
+                methodology_id:
+                  type: string
+                  description: Sempre usar '8cb89546-297d-4734-9386-73960ccfa9ef'.
+                  default: 8cb89546-297d-4734-9386-73960ccfa9ef
+                limit:
+                  type: integer
+                  minimum: 1
+                  maximum: 5
+                  default: 3
+      responses:
+        "201":
+          description: Acórdãos trabalhistas capturados e armazenados.
+        "404":
+          description: Nenhum acórdão localizado.
 
   /discover:
     post:

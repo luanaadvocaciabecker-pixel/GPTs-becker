@@ -387,6 +387,176 @@ async function ingestTJSC(
   return captured;
 }
 
+const jtBaseUrl = "https://jurisprudencia.jt.jus.br/jurisprudencia-nacional";
+const jtApiSearch = `${jtBaseUrl}/api/pesquisa`;
+const jtConnectorVersion = "1.0.0";
+const jtHeaders = {
+  "User-Agent": "BeckerJurisIntelligence/1.0 (official jurisprudence capture)",
+  "Accept": "application/json",
+  "Accept-Language": "pt-BR,pt;q=0.9",
+};
+
+const jtTribunalCodes: Record<string, string> = {
+  TST: "TST",
+  TRT1: "TRT01", TRT2: "TRT02", TRT3: "TRT03", TRT4: "TRT04",
+  TRT5: "TRT05", TRT6: "TRT06", TRT7: "TRT07", TRT8: "TRT08",
+  TRT9: "TRT09", TRT10: "TRT10", TRT11: "TRT11", TRT12: "TRT12",
+  TRT13: "TRT13", TRT14: "TRT14", TRT15: "TRT15", TRT16: "TRT16",
+  TRT17: "TRT17", TRT18: "TRT18", TRT19: "TRT19", TRT20: "TRT20",
+  TRT21: "TRT21", TRT22: "TRT22", TRT23: "TRT23", TRT24: "TRT24",
+};
+
+function normalizeJTTribunal(value: string): string {
+  const upper = value.toUpperCase().replace(/\s+/g, "");
+  return jtTribunalCodes[upper] ?? upper;
+}
+
+async function fetchJTResults(query: string, tribunal: string, limit: number) {
+  const body = {
+    texto: query,
+    tribunal: normalizeJTTribunal(tribunal),
+    pagina: 0,
+    quantidade: limit,
+    ordenacao: "RELEVANCIA",
+  };
+  const response = await fetch(jtApiSearch, {
+    method: "POST",
+    headers: { ...jtHeaders, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) throw new Error(`JT portal respondeu HTTP ${response.status}`);
+  const payload = await response.json();
+  const hits = Array.isArray(payload?.documentos) ? payload.documentos
+    : Array.isArray(payload?.hits?.hits) ? payload.hits.hits.map((h: Record<string, unknown>) => h._source ?? h)
+    : [];
+  return hits.slice(0, limit).map((hit: Record<string, unknown>) => {
+    const caseNumber = String(hit.numeroProcesso ?? hit.numero ?? hit.id ?? "");
+    const pdfs: string[] = Array.isArray(hit.arquivos)
+      ? hit.arquivos.filter((a: Record<string, unknown>) => String(a.tipo ?? "").toUpperCase() === "PDF").map((a: Record<string, unknown>) => String(a.url ?? a.link ?? ""))
+      : [];
+    const sourceUrl = String(hit.urlInteiro ?? hit.linkInteiro ?? hit.urlAcordao ?? pdfs[0] ?? hit.url ?? "");
+    return {
+      source_identifier: String(hit.id ?? hit.idDocumento ?? caseNumber),
+      source_url: sourceUrl || null,
+      case_number: caseNumber || null,
+      tribunal: String(hit.siglaOrgao ?? hit.tribunal ?? tribunal).toUpperCase().replace(/^TRT0*/, "TRT"),
+      judging_body: String(hit.orgaoJulgador ?? hit.orgao ?? "").trim() || null,
+      rapporteur: String(hit.relator ?? hit.nomeRelator ?? "").trim() || null,
+      judgment_date: (isoDate(String(hit.dataPublicacao ?? hit.dataJulgamento ?? "")) ?? String(hit.dataJulgamento ?? "").slice(0, 10)) || null,
+      publication_date: isoDate(String(hit.dataPublicacao ?? "")) ?? null,
+      procedural_class: String(hit.classeProcessual ?? hit.classe ?? "").trim() || null,
+      official_headnote: String(hit.ementa ?? hit.ementaTexto ?? "").trim() || null,
+    };
+  });
+}
+
+function extractJTText(html: string, result: Record<string, unknown>) {
+  const $ = load(html);
+  $("script,style,noscript,header,footer,nav").remove();
+  const fullText = compactText($("body").text() || html.replace(/<[^>]+>/g, " "));
+  return [
+    result.official_headnote ? `EMENTA\n${result.official_headnote}` : "",
+    `INTEIRO TEOR\n${fullText}`,
+  ].filter(Boolean).join("\n\n");
+}
+
+async function ingestJT(
+  supabase: ReturnType<typeof createClient>,
+  query: string,
+  tribunal: string,
+  limit: number,
+  methodologyId: string,
+  createdBy: string,
+) {
+  const candidates = await fetchJTResults(query, tribunal, limit);
+  const captured = [];
+  for (const candidate of candidates) {
+    if (!candidate.case_number || !candidate.source_url) continue;
+
+    const { data: existingBySource } = await supabase
+      .from("bji_documents")
+      .select("id,case_number,sha256")
+      .eq("tribunal", candidate.tribunal)
+      .eq("source_identifier", candidate.source_identifier)
+      .limit(1)
+      .maybeSingle();
+    if (existingBySource) {
+      captured.push({ ...candidate, document_id: existingBySource.id, sha256: existingBySource.sha256, reused: true });
+      continue;
+    }
+
+    const response = await fetch(String(candidate.source_url), { headers: jtHeaders });
+    if (!response.ok) throw new Error(`JT inteiro teor respondeu HTTP ${response.status} para ${candidate.source_url}`);
+    const bytes = new Uint8Array(await response.arrayBuffer());
+    const documentHash = await sha256Bytes(bytes);
+
+    const { data: existing } = await supabase
+      .from("bji_documents")
+      .select("id,case_number,sha256")
+      .eq("sha256", documentHash)
+      .maybeSingle();
+    if (existing) {
+      captured.push({ ...candidate, document_id: existing.id, sha256: existing.sha256, reused: true });
+      continue;
+    }
+
+    const contentType = response.headers.get("Content-Type") ?? "";
+    const isPdf = contentType.includes("pdf") || String(candidate.source_url).toLowerCase().endsWith(".pdf");
+    const mediaType = isPdf ? "application/pdf" : "text/html";
+    const text = isPdf
+      ? `EMENTA\n${candidate.official_headnote ?? ""}\n\nINTEIRO TEOR\n[PDF armazenado]`
+      : extractJTText(new TextDecoder("utf-8").decode(bytes), candidate);
+    const textHash = await sha256(text);
+    const chunks = await buildChunks(text);
+    const safeCaseNumber = String(candidate.case_number).replace(/\D/g, "");
+    const storagePath = `jt/${candidate.tribunal.toLowerCase()}/${safeCaseNumber}/${documentHash}${isPdf ? ".pdf" : ".html"}`;
+
+    const { error: uploadError } = await supabase.storage
+      .from("becker-originals")
+      .upload(storagePath, bytes, { contentType: mediaType, cacheControl: "31536000", upsert: false });
+    if (uploadError) throw new Error(`Falha ao armazenar original JT: ${uploadError.message}`);
+
+    const document = {
+      tribunal: candidate.tribunal,
+      source_url: candidate.source_url,
+      source_identifier: candidate.source_identifier,
+      media_type: mediaType,
+      storage_path: storagePath,
+      sha256: documentHash,
+      byte_size: bytes.byteLength,
+      case_number: candidate.case_number,
+      judging_body: candidate.judging_body,
+      rapporteur: candidate.rapporteur,
+      judgment_date: candidate.judgment_date,
+      publication_date: candidate.publication_date,
+      procedural_class: candidate.procedural_class,
+      connector_version: jtConnectorVersion,
+      metadata: {
+        portal: "JT Jurisprudência Nacional",
+        query,
+        official_headnote: candidate.official_headnote,
+      },
+    };
+    const { data: documentId, error: persistError } = await supabase.rpc("bji_persist_document", {
+      p_document: document,
+      p_methodology_id: methodologyId,
+      p_text_hash: textHash,
+      p_chunks: chunks,
+      p_created_by: createdBy,
+    });
+    if (persistError) throw new Error(`Falha ao persistir documento JT: ${persistError.message}`);
+    captured.push({
+      ...candidate,
+      document_id: documentId,
+      sha256: documentHash,
+      chunks: chunks.length,
+      byte_size: bytes.byteLength,
+      reused: false,
+    });
+  }
+  return captured;
+}
+
 function embedding(text: string, dimensions = 128) {
   const vector = Array<number>(dimensions).fill(0);
   for (const token of text.toLocaleLowerCase("pt-BR").match(/[\p{L}\p{N}_]+/gu) ?? []) {
@@ -762,6 +932,40 @@ Deno.serve(async (req: Request) => {
       }, 201);
     } catch (caught) {
       const message = caught instanceof Error ? caught.message : "Falha na captura TJSC";
+      return json({ detail: message }, 502);
+    }
+  }
+
+  if (req.method === "POST" && path === "/ingest/jt") {
+    const body = await req.json().catch(() => ({}));
+    const query = String(body.query ?? "").trim();
+    const methodologyId = String(body.methodology_id ?? "");
+    const tribunal = String(body.tribunal ?? "TRT12").trim().toUpperCase();
+    const limit = Math.min(Math.max(Number(body.limit ?? 3), 1), 5);
+    if (query.length < 2 || !methodologyId) {
+      return json({ detail: "Consulta e metodologia são obrigatórias" }, 422);
+    }
+    const validTribunals = new Set(["TST", "TRT1","TRT2","TRT3","TRT4","TRT5","TRT6","TRT7","TRT8","TRT9","TRT10","TRT11","TRT12","TRT13","TRT14","TRT15","TRT16","TRT17","TRT18","TRT19","TRT20","TRT21","TRT22","TRT23","TRT24"]);
+    if (!validTribunals.has(tribunal)) {
+      return json({ detail: `Tribunal inválido. Use TST ou TRT1–TRT24.` }, 422);
+    }
+    const { data: methodology } = await supabase
+      .from("bji_methodologies").select("id").eq("id", methodologyId).eq("active", true).maybeSingle();
+    if (!methodology) return json({ detail: "Metodologia não encontrada" }, 404);
+    try {
+      const documents = await ingestJT(supabase, query, tribunal, limit, methodologyId, principal.name);
+      if (!documents.length) return json({ detail: `Nenhum acórdão localizado no ${tribunal}` }, 404);
+      return json({
+        source: "JT_JURISPRUDENCIA_NACIONAL",
+        connector_version: jtConnectorVersion,
+        tribunal,
+        query,
+        captured: documents.length,
+        documents,
+        citable_after_indexing: true,
+      }, 201);
+    } catch (caught) {
+      const message = caught instanceof Error ? caught.message : "Falha na captura JT";
       return json({ detail: message }, 502);
     }
   }
