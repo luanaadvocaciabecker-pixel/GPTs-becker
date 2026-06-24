@@ -1,0 +1,65 @@
+openapi: 3.1.0
+info:
+  title: Becker - Jurisprudência Verificada
+  description: Pesquisa jurisprudencial auditada com rastreabilidade documental integral. Cobre tribunais cíveis e trabalhistas.
+  version: 1.1.0
+servers:
+  - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1
+    description: Edge Functions do projeto Becker Juris Intelligence
+paths:
+  /buscar:
+    post:
+      operationId: buscarJurisprudencia
+      summary: Busca jurisprudência verificada por tema, tribunal e período.
+      description: >
+        Retorna SOMENTE precedentes verificados catalogados na base.
+        Use tabela="jurisprudencia" sempre.
+        Filtre por tribunal para delimitar a busca: STJ e TJSC para cível/bancário;
+        TST, TRT12 ou TRT4 para trabalhista.
+        Se nenhum precedente for encontrado para o ponto, retorne explicitamente
+        que não há precedente catalogado — nunca invente número, relator ou ementa.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query:
+                  type: string
+                  description: Tema ou tese em linguagem natural.
+                tabela:
+                  type: string
+                  enum: [jurisprudencia]
+                  default: jurisprudencia
+                tema:
+                  type: string
+                  description: >
+                    Filtro de tema. Cível: "RMC", "Busca e apressão", "Fraude bancária", "Superendividamento".
+                    Trabalhista: "HORAS_EXTRAS", "RESCISAO_INDIRETA", "FGTS", "DANO_MORAL",
+                    "TERCEIRIZACAO", "INTERVALO_INTRAJORNADA", "INSALUBRIDADE", "VINCULO_EMPREGADO".
+                tribunal:
+                  type: string
+                  enum: [STJ, TJSC, STF, TST, TRT12, TRT4]
+                  description: >
+                    Tribunal alvo. Cível/bancário: STJ, TJSC, STF.
+                    Trabalhista: TST, TRT12 (Santa Catarina), TRT4 (Rio Grande do Sul).
+                incluir_lacuna:
+                  type: boolean
+                  default: true
+                k:
+                  type: integer
+                  default: 8
+      responses:
+        "200":
+          description: Precedentes ordenados por relevância.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resultados:
+                    type: array
+                    items:
+                      type: object
