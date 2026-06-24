@@ -1,23 +1,100 @@
 openapi: 3.1.0
 info:
-  title: Becker - Jurisprudência Verificada
-  description: Pesquisa jurisprudencial auditada com rastreabilidade documental integral. Cobre tribunais cíveis e trabalhistas.
+  title: Becker Juris Intelligence
+  description: Pesquisa jurisprudencial auditável com rastreabilidade documental integral. Cobre cível, bancário e trabalhista.
   version: 1.1.0
 servers:
   - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1
     description: Edge Functions do projeto Becker Juris Intelligence
 paths:
-  /buscar:
+  /research:
     post:
-      operationId: buscarJurisprudencia
-      summary: Busca jurisprudência verificada por tema, tribunal e período.
+      operationId: researchJurisprudenceByTheme
+      summary: Pesquisa jurisprudência verificada por tema, área e jurisdição.
       description: >
-        Retorna SOMENTE precedentes verificados catalogados na base.
-        Use tabela="jurisprudencia" sempre.
-        Filtre por tribunal para delimitar a busca: STJ e TJSC para cível/bancário;
-        TST, TRT12 ou TRT4 para trabalhista.
-        Se nenhum precedente for encontrado para o ponto, retorne explicitamente
-        que não há precedente catalogado — nunca invente número, relator ou ementa.
+        Pesquisa o acervo auditado e, quando necessário, captura automaticamente
+        documentos do portal oficial. Retorna somente precedentes verificados.
+        Nunca responda com jurisprudência de memória — sempre chame esta Action primeiro.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query, area, jurisdiction, methodology_id]
+              properties:
+                query:
+                  type: string
+                  description: Tema ou tese em linguagem natural.
+                area:
+                  type: string
+                  enum: [civil, bancario, trabalhista]
+                  description: >
+                    Área jurídica. Use 'bancario' para RMC/RCC/juros abusivos;
+                    'trabalhista' para CLT/horas extras/verbas rescisórias/FGTS/dano moral trabalhista;
+                    'civil' para demais casos.
+                jurisdiction:
+                  type: string
+                  description: >-
+                    UF do processo ou SC para pesquisa temática sem processo específico.
+                    Para trabalhista em SC: TRT12. Para trabalhista nacional: TST.
+                  default: SC
+                methodology_id:
+                  type: string
+                  description: Sempre usar '8cb89546-297d-4734-9386-73960ccfa9ef'.
+                  default: 8cb89546-297d-4734-9386-73960ccfa9ef
+      responses:
+        "200":
+          description: Resultado auditável com tese, ementa, fundamentação e rastreabilidade.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  main_thesis:
+                    type: string
+                  jurisprudence_for_citation:
+                    type: string
+                  petition_grounding:
+                    type: string
+                  becker_headnote:
+                    type: object
+                  citation_units:
+                    type: array
+                    items:
+                      type: object
+        "422":
+          description: Evidência insuficiente — nenhum documento auditável localizado.
+
+  /ingest-tjsc:
+    post:
+      operationId: ingestTJSCJurisprudence
+      summary: Captura manual de acórdão do TJSC solicitada pelo usuário.
+      description: >
+        Use apenas quando o usuário solicitar explicitamente a captura de um
+        acórdão específico do TJSC. Não use para preencher lacunas automaticamente.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [processo]
+              properties:
+                processo:
+                  type: string
+                  description: Número CNJ do processo.
+      responses:
+        "200":
+          description: Acórdão capturado e armazenado.
+
+  /discover:
+    post:
+      operationId: discoverTJSCProcesses
+      summary: Localiza metadados processuais no DataJud (não é jurisprudência).
+      description: >
+        Retorna apenas metadados processuais. Resultados não podem ser citados
+        como jurisprudência.
       requestBody:
         required: true
         content:
@@ -28,38 +105,6 @@ paths:
               properties:
                 query:
                   type: string
-                  description: Tema ou tese em linguagem natural.
-                tabela:
-                  type: string
-                  enum: [jurisprudencia]
-                  default: jurisprudencia
-                tema:
-                  type: string
-                  description: >
-                    Filtro de tema. Cível: "RMC", "Busca e apressão", "Fraude bancária", "Superendividamento".
-                    Trabalhista: "HORAS_EXTRAS", "RESCISAO_INDIRETA", "FGTS", "DANO_MORAL",
-                    "TERCEIRIZACAO", "INTERVALO_INTRAJORNADA", "INSALUBRIDADE", "VINCULO_EMPREGADO".
-                tribunal:
-                  type: string
-                  enum: [STJ, TJSC, STF, TST, TRT12, TRT4]
-                  description: >
-                    Tribunal alvo. Cível/bancário: STJ, TJSC, STF.
-                    Trabalhista: TST, TRT12 (Santa Catarina), TRT4 (Rio Grande do Sul).
-                incluir_lacuna:
-                  type: boolean
-                  default: true
-                k:
-                  type: integer
-                  default: 8
       responses:
         "200":
-          description: Precedentes ordenados por relevância.
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  resultados:
-                    type: array
-                    items:
-                      type: object
+          description: Metadados processuais localizados.
