@@ -1058,17 +1058,17 @@ Deno.serve(async (req: Request) => {
       result_limit: 50,
     });
     if (searchError) return json({ detail: searchError.message }, 500);
-    let searchable = (found ?? []).filter((item: Record<string, unknown>) =>
-      item.case_number && item.content && supportsQuery(item.content, query)
-    );
     const area = String(body.area ?? "").toLowerCase();
     const trabalhistaCourts = new Set(["TRT12", "TRT4", "TRT9", "TST"]);
-    if (area === "trabalhista") {
-      searchable = searchable.filter((item: Record<string, unknown>) => {
+    let searchable = (found ?? []).filter((item: Record<string, unknown>) => {
+      if (!item.case_number || !item.content) return false;
+      if (area === "trabalhista") {
         const court = String(item.tribunal ?? "").toUpperCase();
         return trabalhistaCourts.has(court) || court.startsWith("TRT");
-      });
-    } else if (area === "civil" || area === "bancario") {
+      }
+      return supportsQuery(item.content, query);
+    });
+    if (area === "civil" || area === "bancario") {
       searchable = searchable.filter((item: Record<string, unknown>) => {
         const court = String(item.tribunal ?? "").toUpperCase();
         return !court.startsWith("TRT") && court !== "TST";
