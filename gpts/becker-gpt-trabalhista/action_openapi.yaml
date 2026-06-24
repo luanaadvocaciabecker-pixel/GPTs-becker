@@ -1,0 +1,72 @@
+openapi: 3.1.0
+info:
+  title: Becker - Base de Conhecimento Trabalhista
+  description: Consulta a base de conhecimento (doutrina/estratégia/cálculos trabalhistas) e a jurisprudência verificada do escritório para Direito do Trabalho.
+  version: 1.0.0
+servers:
+  - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1
+    description: Edge Functions do projeto Becker Juris Intelligence
+paths:
+  /buscar:
+    post:
+      operationId: buscarConhecimento
+      summary: Busca híbrida na base de conhecimento ou na jurisprudência trabalhista verificada.
+      description: >
+        Use tabela="base" para método, teses, cálculos, estratégia processual e peças de referência trabalhistas.
+        Use tabela="jurisprudencia" para precedentes (retorna SOMENTE precedentes verificados — TST, TRT 12ª, TRT 4ª).
+        Sempre consulte esta ação ANTES de redigir qualquer peça ou afirmar tese.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query:
+                  type: string
+                  description: Pergunta ou tema em linguagem natural.
+                tabela:
+                  type: string
+                  enum: [base, jurisprudencia]
+                  default: base
+                materia:
+                  type: string
+                  description: >-
+                    Filtro opcional. Exemplos: "HORAS_EXTRAS", "RESCISAO_INDIRETA",
+                    "FGTS", "DANO_MORAL", "VINCULO_EMPREGADO", "TERCEIRIZACAO",
+                    "INSALUBRIDADE", "ACIDENTE_TRABALHO", "ESTABILIDADE",
+                    "VERBAS_RESCISORIAS", "PRESCRICAO", "REFORMA_TRABALHISTA".
+                tipo_peca:
+                  type: string
+                  description: Filtro opcional. Exemplos: "INICIAL", "REPLICA", "RECURSO_ORDINARIO", "EMBARGOS", "RECURSO_REVISTA".
+                pasta:
+                  type: string
+                  enum: [AUDITORIA_TRABALHISTA, FUNDACAO, MATERIAS, PECAS_REFERENCIA, CALCULOS]
+                nivel:
+                  type: string
+                  enum: [CRÍTICO, ALTO, MÉDIO, BAIXO]
+                tema:
+                  type: string
+                  description: Filtro de jurisprudência (ex. "HORAS_EXTRAS", "BANCO_DE_HORAS", "RESCISAO_INDIRETA", "DANO_MORAL", "TERCEIRIZACAO").
+                tribunal:
+                  type: string
+                  enum: [TST, TRT12, TRT4, STF]
+                incluir_lacuna:
+                  type: boolean
+                  default: true
+                k:
+                  type: integer
+                  default: 8
+      responses:
+        "200":
+          description: Resultados ordenados por relevância.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resultados:
+                    type: array
+                    items:
+                      type: object
