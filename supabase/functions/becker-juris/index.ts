@@ -387,77 +387,88 @@ async function ingestTJSC(
   return captured;
 }
 
-const jtBaseUrl = "https://jurisprudencia.jt.jus.br/jurisprudencia-nacional";
-const jtApiSearch = `${jtBaseUrl}/api/pesquisa`;
-const jtConnectorVersion = "1.0.0";
-const jtHeaders = {
-  "User-Agent": "BeckerJurisIntelligence/1.0 (official jurisprudence capture)",
+const tstBackendUrl = "https://jurisprudencia-backend2.tst.jus.br";
+const tstAcordaoUrl = "https://consultadocumento.tst.jus.br/consultaDocumento/acordao.do";
+const jtConnectorVersion = "2.0.0";
+const jtBrowserHeaders = {
+  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120",
   "Accept": "application/json",
-  "Accept-Language": "pt-BR,pt;q=0.9",
+  "Origin": "https://jurisprudencia.tst.jus.br",
+  "Referer": "https://jurisprudencia.tst.jus.br/",
 };
 
-const jtTribunalCodes: Record<string, string> = {
-  TST: "TST",
-  TRT1: "TRT01", TRT2: "TRT02", TRT3: "TRT03", TRT4: "TRT04",
-  TRT5: "TRT05", TRT6: "TRT06", TRT7: "TRT07", TRT8: "TRT08",
-  TRT9: "TRT09", TRT10: "TRT10", TRT11: "TRT11", TRT12: "TRT12",
-  TRT13: "TRT13", TRT14: "TRT14", TRT15: "TRT15", TRT16: "TRT16",
-  TRT17: "TRT17", TRT18: "TRT18", TRT19: "TRT19", TRT20: "TRT20",
-  TRT21: "TRT21", TRT22: "TRT22", TRT23: "TRT23", TRT24: "TRT24",
-};
-
-function normalizeJTTribunal(value: string): string {
-  const upper = value.toUpperCase().replace(/\s+/g, "");
-  return jtTribunalCodes[upper] ?? upper;
+interface TSTRegistro {
+  id: unknown;
+  numFormatado: unknown;
+  numeracaoUnica: unknown;
+  orgaoJudicante: unknown;
+  nomRelator: unknown;
+  dtaJulgamento: unknown;
+  dtaOrdenacao: unknown;
+  dtaPublicacao: unknown;
+  ementa: unknown;
+  ementaHtml: unknown;
+  txtConteudoDecisao: unknown;
+  txtInteiroTeor: unknown;
+  inteiroTeorHtml: unknown;
+  numProcInt: unknown;
+  anoProcInt: unknown;
+  tipo: unknown;
 }
 
-async function fetchJTResults(query: string, tribunal: string, limit: number) {
+function tstIsoDate(value: unknown) {
+  const str = String(value ?? "");
+  if (/^\d{4}-\d{2}-\d{2}/.test(str)) return str.slice(0, 10);
+  return isoDate(str);
+}
+
+function stripHtml(html: string) {
+  return compactText(html.replace(/<[^>]+>/g, " ").replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">"));
+}
+
+async function fetchTSTResults(query: string, limit: number) {
   const body = {
-    texto: query,
-    tribunal: normalizeJTTribunal(tribunal),
-    pagina: 0,
-    quantidade: limit,
-    ordenacao: "RELEVANCIA",
+    ou: query,
+    e: "",
+    naoContem: "",
+    ementa: "",
+    dispositivo: "",
   };
-  const response = await fetch(jtApiSearch, {
+  const response = await fetch(`${tstBackendUrl}/rest/pesquisa-textual/1/${limit}`, {
     method: "POST",
-    headers: { ...jtHeaders, "Content-Type": "application/json" },
+    headers: { ...jtBrowserHeaders, "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  if (!response.ok) throw new Error(`JT portal respondeu HTTP ${response.status}`);
+  if (!response.ok) throw new Error(`TST backend respondeu HTTP ${response.status}`);
   const payload = await response.json();
-  const hits = Array.isArray(payload?.documentos) ? payload.documentos
-    : Array.isArray(payload?.hits?.hits) ? payload.hits.hits.map((h: Record<string, unknown>) => h._source ?? h)
-    : [];
-  return hits.slice(0, limit).map((hit: Record<string, unknown>) => {
-    const caseNumber = String(hit.numeroProcesso ?? hit.numero ?? hit.id ?? "");
-    const pdfs: string[] = Array.isArray(hit.arquivos)
-      ? hit.arquivos.filter((a: Record<string, unknown>) => String(a.tipo ?? "").toUpperCase() === "PDF").map((a: Record<string, unknown>) => String(a.url ?? a.link ?? ""))
-      : [];
-    const sourceUrl = String(hit.urlInteiro ?? hit.linkInteiro ?? hit.urlAcordao ?? pdfs[0] ?? hit.url ?? "");
+  const registros: TSTRegistro[] = (payload?.registros ?? []).map((r: Record<string, unknown>) => r.registro ?? r);
+  return registros.slice(0, limit).map((reg) => {
+    const rawFullText = String(reg.txtConteudoDecisao ?? reg.inteiroTeorHtml ?? reg.txtInteiroTeor ?? "");
+    const fullText = rawFullText.trim().startsWith("<") ? stripHtml(rawFullText) : compactText(rawFullText);
+    const ementa = stripHtml(String(reg.ementaHtml ?? reg.ementa ?? ""));
+    const nu = reg.numeracaoUnica as Record<string, unknown> | null | undefined;
+    const caseNumber = nu && typeof nu === "object"
+      ? `${String(nu.numero ?? "").padStart(7, "0")}-${String(nu.digito ?? "").padStart(2, "0")}.${nu.ano}.${nu.orgao}.${String(nu.tribunal ?? "").padStart(2, "0")}.${String(nu.vara ?? "").padStart(4, "0")}`
+      : String(reg.numFormatado ?? reg.id ?? "");
+    const numProcInt = String(reg.numProcInt ?? "");
+    const anoProcInt = String(reg.anoProcInt ?? "");
+    const sourceUrl = numProcInt && anoProcInt && anoProcInt !== "0"
+      ? `${tstAcordaoUrl}?numeroInt=${numProcInt}&anoInt=${anoProcInt}`
+      : null;
     return {
-      source_identifier: String(hit.id ?? hit.idDocumento ?? caseNumber),
-      source_url: sourceUrl || null,
+      source_identifier: String(reg.id ?? caseNumber),
+      source_url: sourceUrl,
       case_number: caseNumber || null,
-      tribunal: String(hit.siglaOrgao ?? hit.tribunal ?? tribunal).toUpperCase().replace(/^TRT0*/, "TRT"),
-      judging_body: String(hit.orgaoJulgador ?? hit.orgao ?? "").trim() || null,
-      rapporteur: String(hit.relator ?? hit.nomeRelator ?? "").trim() || null,
-      judgment_date: (isoDate(String(hit.dataPublicacao ?? hit.dataJulgamento ?? "")) ?? String(hit.dataJulgamento ?? "").slice(0, 10)) || null,
-      publication_date: isoDate(String(hit.dataPublicacao ?? "")) ?? null,
-      procedural_class: String(hit.classeProcessual ?? hit.classe ?? "").trim() || null,
-      official_headnote: String(hit.ementa ?? hit.ementaTexto ?? "").trim() || null,
+      tribunal: "TST",
+      judging_body: String(reg.orgaoJudicante ?? "").trim() || null,
+      rapporteur: String(reg.nomRelator ?? "").trim() || null,
+      judgment_date: tstIsoDate(reg.dtaJulgamento ?? reg.dtaOrdenacao),
+      publication_date: tstIsoDate(reg.dtaPublicacao),
+      procedural_class: String(reg.numFormatado ?? "").match(/^([A-Z]+(?:-[A-Z]+)?)\s*-/)?.[1] ?? null,
+      official_headnote: ementa || null,
+      full_text: fullText || ementa || null,
     };
-  });
-}
-
-function extractJTText(html: string, result: Record<string, unknown>) {
-  const $ = load(html);
-  $("script,style,noscript,header,footer,nav").remove();
-  const fullText = compactText($("body").text() || html.replace(/<[^>]+>/g, " "));
-  return [
-    result.official_headnote ? `EMENTA\n${result.official_headnote}` : "",
-    `INTEIRO TEOR\n${fullText}`,
-  ].filter(Boolean).join("\n\n");
+  }).filter((c) => c.case_number && (c.full_text || c.official_headnote));
 }
 
 async function ingestJT(
@@ -468,11 +479,12 @@ async function ingestJT(
   methodologyId: string,
   createdBy: string,
 ) {
-  const candidates = await fetchJTResults(query, tribunal, limit);
+  if (tribunal !== "TST") {
+    throw new Error(`Tribunal ${tribunal} ainda não tem conector implementado. Use TST.`);
+  }
+  const candidates = await fetchTSTResults(query, limit);
   const captured = [];
   for (const candidate of candidates) {
-    if (!candidate.case_number || !candidate.source_url) continue;
-
     const { data: existingBySource } = await supabase
       .from("bji_documents")
       .select("id,case_number,sha256")
@@ -481,14 +493,17 @@ async function ingestJT(
       .limit(1)
       .maybeSingle();
     if (existingBySource) {
-      captured.push({ ...candidate, document_id: existingBySource.id, sha256: existingBySource.sha256, reused: true });
+      captured.push({ ...candidate, document_id: existingBySource.id, sha256: existingBySource.sha256, reused: true, full_text: undefined });
       continue;
     }
 
-    const response = await fetch(String(candidate.source_url), { headers: jtHeaders });
-    if (!response.ok) throw new Error(`JT inteiro teor respondeu HTTP ${response.status} para ${candidate.source_url}`);
-    const bytes = new Uint8Array(await response.arrayBuffer());
-    const documentHash = await sha256Bytes(bytes);
+    const text = [
+      candidate.official_headnote ? `EMENTA\n${candidate.official_headnote}` : "",
+      candidate.full_text ? `INTEIRO TEOR\n${candidate.full_text}` : "",
+    ].filter(Boolean).join("\n\n");
+
+    const textBytes = new TextEncoder().encode(text);
+    const documentHash = await sha256Bytes(textBytes);
 
     const { data: existing } = await supabase
       .from("bji_documents")
@@ -496,34 +511,28 @@ async function ingestJT(
       .eq("sha256", documentHash)
       .maybeSingle();
     if (existing) {
-      captured.push({ ...candidate, document_id: existing.id, sha256: existing.sha256, reused: true });
+      captured.push({ ...candidate, document_id: existing.id, sha256: existing.sha256, reused: true, full_text: undefined });
       continue;
     }
 
-    const contentType = response.headers.get("Content-Type") ?? "";
-    const isPdf = contentType.includes("pdf") || String(candidate.source_url).toLowerCase().endsWith(".pdf");
-    const mediaType = isPdf ? "application/pdf" : "text/html";
-    const text = isPdf
-      ? `EMENTA\n${candidate.official_headnote ?? ""}\n\nINTEIRO TEOR\n[PDF armazenado]`
-      : extractJTText(new TextDecoder("utf-8").decode(bytes), candidate);
     const textHash = await sha256(text);
     const chunks = await buildChunks(text);
     const safeCaseNumber = String(candidate.case_number).replace(/\D/g, "");
-    const storagePath = `jt/${candidate.tribunal.toLowerCase()}/${safeCaseNumber}/${documentHash}${isPdf ? ".pdf" : ".html"}`;
+    const storagePath = `jt/tst/${safeCaseNumber}/${documentHash}.txt`;
 
     const { error: uploadError } = await supabase.storage
       .from("becker-originals")
-      .upload(storagePath, bytes, { contentType: mediaType, cacheControl: "31536000", upsert: false });
-    if (uploadError) throw new Error(`Falha ao armazenar original JT: ${uploadError.message}`);
+      .upload(storagePath, textBytes, { contentType: "text/plain; charset=utf-8", cacheControl: "31536000", upsert: false });
+    if (uploadError) throw new Error(`Falha ao armazenar texto TST: ${uploadError.message}`);
 
     const document = {
-      tribunal: candidate.tribunal,
+      tribunal: "TST",
       source_url: candidate.source_url,
       source_identifier: candidate.source_identifier,
-      media_type: mediaType,
+      media_type: "text/plain",
       storage_path: storagePath,
       sha256: documentHash,
-      byte_size: bytes.byteLength,
+      byte_size: textBytes.byteLength,
       case_number: candidate.case_number,
       judging_body: candidate.judging_body,
       rapporteur: candidate.rapporteur,
@@ -532,7 +541,7 @@ async function ingestJT(
       procedural_class: candidate.procedural_class,
       connector_version: jtConnectorVersion,
       metadata: {
-        portal: "JT Jurisprudência Nacional",
+        portal: "TST Jurisprudência",
         query,
         official_headnote: candidate.official_headnote,
       },
@@ -544,14 +553,15 @@ async function ingestJT(
       p_chunks: chunks,
       p_created_by: createdBy,
     });
-    if (persistError) throw new Error(`Falha ao persistir documento JT: ${persistError.message}`);
+    if (persistError) throw new Error(`Falha ao persistir documento TST: ${persistError.message}`);
     captured.push({
       ...candidate,
       document_id: documentId,
       sha256: documentHash,
       chunks: chunks.length,
-      byte_size: bytes.byteLength,
+      byte_size: textBytes.byteLength,
       reused: false,
+      full_text: undefined,
     });
   }
   return captured;
@@ -945,9 +955,9 @@ Deno.serve(async (req: Request) => {
     if (query.length < 2 || !methodologyId) {
       return json({ detail: "Consulta e metodologia são obrigatórias" }, 422);
     }
-    const validTribunals = new Set(["TST", "TRT1","TRT2","TRT3","TRT4","TRT5","TRT6","TRT7","TRT8","TRT9","TRT10","TRT11","TRT12","TRT13","TRT14","TRT15","TRT16","TRT17","TRT18","TRT19","TRT20","TRT21","TRT22","TRT23","TRT24"]);
+    const validTribunals = new Set(["TST"]);
     if (!validTribunals.has(tribunal)) {
-      return json({ detail: `Tribunal inválido. Use TST ou TRT1–TRT24.` }, 422);
+      return json({ detail: `Tribunal inválido. Por enquanto apenas TST está disponível.` }, 422);
     }
     const { data: methodology } = await supabase
       .from("bji_methodologies").select("id").eq("id", methodologyId).eq("active", true).maybeSingle();
