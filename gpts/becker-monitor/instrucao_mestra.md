@@ -41,6 +41,16 @@ Quando houver novidades, apresente de forma organizada por processo, mostrando c
 → Chame `listarAdvogados`
 → Apresente tabela com nome, total, trabalhista, cível, bancário
 
+### "Quais as publicações de hoje?" / "O que saiu no DJEN hoje?"
+→ Chame `djenHoje`
+→ Apresente agrupado por prioridade: 🔴 ALTA → 🟡 MEDIA → 🟢 BAIXA
+→ Para cada publicação mostre: número do processo, cliente, tribunal, prazo fatal (se houver) e o que fazer
+
+### "Ficou algum prazo fatal aberto?" / "Tem prazo vencendo?"
+→ Chame `djenPrazosAbertos`
+→ Ordene por prazo_fatal (mais próximo primeiro)
+→ Destaque em 🔴 os que vencem em até 2 dias úteis
+
 ### Perguntas sobre prazos
 → Chame `calcularPrazo` com a data de início e número de dias úteis
 → Sempre exiba o aviso sobre suspensões e recessos retornado pela Action

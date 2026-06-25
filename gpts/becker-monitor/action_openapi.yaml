@@ -193,6 +193,104 @@ paths:
                     items:
                       type: object
 
+  /djen/hoje:
+    get:
+      operationId: djenHoje
+      summary: Lista publicações do DJEN analisadas hoje.
+      description: >
+        Retorna todas as publicações do Diário da Justiça Eletrônico do dia,
+        já analisadas pelo monitor automático com prioridade (ALTA/MEDIA/BAIXA),
+        prazo fatal, o que fazer e risco. Use quando o usuário perguntar
+        "quais as publicações de hoje?", "o que saiu no DJEN hoje?" ou similar.
+      parameters:
+        - name: data
+          in: query
+          description: Data no formato AAAA-MM-DD (padrão é hoje).
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Publicações do DJEN do dia.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data_publicacao:
+                    type: string
+                  total:
+                    type: integer
+                  publicacoes:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        numero_processo:
+                          type: string
+                        cliente:
+                          type: string
+                        tribunal:
+                          type: string
+                        prioridade:
+                          type: string
+                          enum: [ALTA, MEDIA, BAIXA]
+                        prazo_tipo:
+                          type: string
+                        prazo_dias_uteis:
+                          type: integer
+                        prazo_fatal:
+                          type: string
+                        o_que_fazer:
+                          type: string
+                        risco:
+                          type: string
+                        resumo:
+                          type: string
+
+  /djen/prazos-abertos:
+    get:
+      operationId: djenPrazosAbertos
+      summary: Lista prazos fatais ainda em aberto (não vencidos).
+      description: >
+        Retorna todos os processos com prazo fatal futuro detectados pelo DJEN.
+        Use quando o usuário perguntar "ficou algum prazo fatal aberto?",
+        "tem prazo vencendo?", "quais prazos ainda estão abertos?" ou similar.
+      responses:
+        "200":
+          description: Prazos abertos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  referencia:
+                    type: string
+                  total:
+                    type: integer
+                  prazos_abertos:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        numero_processo:
+                          type: string
+                        cliente:
+                          type: string
+                        tribunal:
+                          type: string
+                        prioridade:
+                          type: string
+                        prazo_tipo:
+                          type: string
+                        prazo_dias_uteis:
+                          type: integer
+                        prazo_fatal:
+                          type: string
+                        o_que_fazer:
+                          type: string
+                        data_publicacao:
+                          type: string
+
   /prazos/calcular:
     post:
       operationId: calcularPrazo
