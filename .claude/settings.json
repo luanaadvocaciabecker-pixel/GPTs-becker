@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "juridico-brasil": {
+      "command": "uvx",
+      "args": ["mcp-juridico-brasil"],
+      "env": {
+        "DATAJUD_API_KEY": "cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw=="
+      }
+    }
+  }
+}

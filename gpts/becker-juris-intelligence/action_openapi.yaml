@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
   title: Becker Juris Intelligence
-  description: Pesquisa jurisprudencial auditável com rastreabilidade documental integral. Cobre cível, bancário e trabalhista.
-  version: 1.2.0
+  description: Pesquisa jurisprudencial auditável com rastreabilidade documental integral. Cobre cível, bancário e trabalhista. Inclui consulta de processos no DataJud CNJ e cálculo de prazos em dias úteis (CPC).
+  version: 1.3.0
 servers:
   - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1/becker-juris
     description: Edge Functions do projeto Becker Juris Intelligence
@@ -129,10 +129,11 @@ paths:
   /discover/tjsc:
     post:
       operationId: discoverTJSCProcesses
-      summary: Localiza metadados processuais no DataJud (não é jurisprudência).
+      summary: Localiza metadados processuais no DataJud por tema (não é jurisprudência).
       description: >
-        Retorna apenas metadados processuais. Resultados não podem ser citados
-        como jurisprudência.
+        Busca processos por tema/assunto no DataJud TJSC. Retorna apenas metadados processuais.
+        Resultados não podem ser citados como jurisprudência. Use /processos/buscar para
+        consultar um processo específico pelo número CNJ.
       requestBody:
         required: true
         content:
@@ -146,3 +147,114 @@ paths:
       responses:
         "200":
           description: Metadados processuais localizados.
+
+  /processos/buscar:
+    post:
+      operationId: buscarProcesso
+      summary: Consulta processo pelo número CNJ em qualquer tribunal do DataJud.
+      description: >
+        Retorna dados completos do processo (classe, assuntos, órgão julgador, grau,
+        data de ajuizamento, últimas movimentações) diretamente do DataJud CNJ.
+        Funciona para qualquer tribunal: TJSC, TJSP, TRT, TRF, STJ, STF, TST e outros.
+        Use quando o usuário informar o número de processo e quiser saber a situação atual,
+        movimentações recentes ou verificar dados antes de protocolar.
+        Resultados não são jurisprudência e não podem ser citados como precedente.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [numero]
+              properties:
+                numero:
+                  type: string
+                  description: >
+                    Número CNJ do processo. Formato: 0000001-00.2024.8.24.0000
+                    Aceita com ou sem pontuação.
+      responses:
+        "200":
+          description: Dados do processo localizados.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  encontrado:
+                    type: boolean
+                  numero:
+                    type: string
+                  tribunal:
+                    type: string
+                  classe:
+                    type: string
+                  assuntos:
+                    type: array
+                    items:
+                      type: string
+                  orgao_julgador:
+                    type: string
+                  grau:
+                    type: string
+                  data_ajuizamento:
+                    type: string
+                  ultimas_movimentacoes:
+                    type: array
+                    items:
+                      type: object
+        "502":
+          description: Falha na consulta ao DataJud.
+
+  /prazos/calcular:
+    post:
+      operationId: calcularPrazo
+      summary: Calcula prazo processual em dias úteis conforme CPC arts. 219, 220 e 224.
+      description: >
+        Calcula a data de vencimento de um prazo processual em dias úteis, excluindo
+        sábados, domingos e feriados nacionais, com início de contagem no primeiro dia
+        útil seguinte à data informada (CPC art. 224 §1º).
+        Use quando o usuário perguntar "qual o prazo para...", "quando vence...",
+        "tenho X dias úteis a partir de...". Sempre exiba o aviso sobre suspensões especiais.
+        Prazos comuns: contestação (15 dias úteis), apelação (15), embargos de declaração (5),
+        recurso ordinário trabalhista (8), agravo de instrumento (15).
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [data_inicio, dias_uteis]
+              properties:
+                data_inicio:
+                  type: string
+                  description: >
+                    Data de início da contagem (publicação/intimação). Formato: AAAA-MM-DD.
+                dias_uteis:
+                  type: integer
+                  minimum: 1
+                  maximum: 365
+                  description: Número de dias úteis do prazo.
+      responses:
+        "200":
+          description: Prazo calculado com sucesso.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data_inicio:
+                    type: string
+                  inicio_contagem:
+                    type: string
+                    description: Primeiro dia útil após a data de início (art. 224 §1º).
+                  dias_uteis:
+                    type: integer
+                  vencimento:
+                    type: string
+                    description: Data de vencimento (AAAA-MM-DD).
+                  base_legal:
+                    type: string
+                  aviso:
+                    type: string
+        "422":
+          description: Data inválida ou parâmetros incorretos.

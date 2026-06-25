@@ -18,6 +18,118 @@ const datajudTJSCSearch = "https://api-publica.datajud.cnj.jus.br/api_publica_tj
 const datajudFallbackKey = "cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw==";
 const datajudConnectorVersion = "1.0.0";
 
+// ── Mapa de tribunais DataJud (prefixo do número CNJ → endpoint) ──────────
+const datajudTribunalEndpoints: Record<string, string> = {
+  TJSC: "api_publica_tjsc", TJSP: "api_publica_tjsp", TJRJ: "api_publica_tjrj",
+  TJRS: "api_publica_tjrs", TJPR: "api_publica_tjpr", TJMG: "api_publica_tjmg",
+  TJBA: "api_publica_tjba", TJGO: "api_publica_tjgo", TJPE: "api_publica_tjpe",
+  TJCE: "api_publica_tjce", TJMT: "api_publica_tjmt", TJMS: "api_publica_tjms",
+  TJPA: "api_publica_tjpa", TJAM: "api_publica_tjam", TJMA: "api_publica_tjma",
+  TJRN: "api_publica_tjrn", TJES: "api_publica_tjes", TJPI: "api_publica_tjpi",
+  TJAL: "api_publica_tjal", TJSE: "api_publica_tjse", TJTO: "api_publica_tjto",
+  TJRO: "api_publica_tjro", TJAC: "api_publica_tjac", TJAP: "api_publica_tjap",
+  TJRR: "api_publica_tjrr", STJ: "api_publica_stj", STF: "api_publica_stf",
+  TST: "api_publica_tst", TRT1: "api_publica_trt1", TRT2: "api_publica_trt2",
+  TRT3: "api_publica_trt3", TRT4: "api_publica_trt4", TRT5: "api_publica_trt5",
+  TRT6: "api_publica_trt6", TRT7: "api_publica_trt7", TRT8: "api_publica_trt8",
+  TRT9: "api_publica_trt9", TRT10: "api_publica_trt10", TRT11: "api_publica_trt11",
+  TRT12: "api_publica_trt12", TRT13: "api_publica_trt13", TRT14: "api_publica_trt14",
+  TRT15: "api_publica_trt15", TRT16: "api_publica_trt16", TRT17: "api_publica_trt17",
+  TRT18: "api_publica_trt18", TRT19: "api_publica_trt19", TRT20: "api_publica_trt20",
+  TRT21: "api_publica_trt21", TRT22: "api_publica_trt22", TRT23: "api_publica_trt23",
+  TRT24: "api_publica_trt24", TRF1: "api_publica_trf1", TRF2: "api_publica_trf2",
+  TRF3: "api_publica_trf3", TRF4: "api_publica_trf4", TRF5: "api_publica_trf5",
+  TRF6: "api_publica_trf6",
+};
+
+// Infere o tribunal a partir do segmento de órgão (posição 6 do número CNJ NNNNNNN-DD.AAAA.J.TT.OOOO)
+function tribunalFromCNJ(numero: string): string | null {
+  // Formato: 0000001-00.2024.8.24.0000 — segmento J.TT identifica o ramo e tribunal
+  const match = numero.replace(/\s/g, "").match(/^\d{7}-\d{2}\.\d{4}\.(\d)\.(\d{2})\.\d{4}$/);
+  if (!match) return null;
+  const ramo = match[1], tribunal = match[2].replace(/^0+/, "");
+  if (ramo === "8") return `TJ${["","","AC","AL","AP","AM","BA","CE","DF","ES","GO","MA","MT","MS","MG","PA","PB","PR","PE","PI","RJ","RN","RS","RO","RR","SC","SP","SE","TO"][Number(tribunal)] ?? "SC"}`;
+  if (ramo === "5") return tribunal === "1" ? "STJ" : tribunal === "2" ? "STF" : null;
+  if (ramo === "6") return `TRT${tribunal}`;
+  if (ramo === "4") return `TRF${tribunal}`;
+  if (ramo === "9") return "TST";
+  return null;
+}
+
+async function buscarProcessoDatajud(numero: string): Promise<Record<string, unknown>> {
+  const apiKey = await currentDatajudKey();
+  const tribunal = tribunalFromCNJ(numero);
+  const endpoint = tribunal ? (datajudTribunalEndpoints[tribunal] ?? "api_publica_tjsc") : "api_publica_tjsc";
+  const url = `https://api-publica.datajud.cnj.jus.br/${endpoint}/_search`;
+  const body = { size: 1, query: { term: { "numeroProcesso.keyword": numero.replace(/\s/g, "") } } };
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { Authorization: `APIKey ${apiKey}`, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!response.ok) throw new Error(`DataJud HTTP ${response.status}`);
+  const payload = await response.json();
+  const hit = payload?.hits?.hits?.[0];
+  if (!hit) return { encontrado: false, numero };
+  const s = (hit._source ?? {}) as Record<string, unknown>;
+  const movimentos = Array.isArray(s.movimentos) ? [...s.movimentos] : [];
+  movimentos.sort((a, b) => String((b as Record<string,unknown>).dataHora ?? "").localeCompare(String((a as Record<string,unknown>).dataHora ?? "")));
+  return {
+    encontrado: true,
+    numero: s.numeroProcesso ?? numero,
+    tribunal: s.tribunal ?? tribunal,
+    classe: (s.classe as Record<string,unknown>)?.nome ?? null,
+    assuntos: Array.isArray(s.assuntos) ? (s.assuntos as Record<string,unknown>[]).map(a => a.nome) : [],
+    orgao_julgador: (s.orgaoJulgador as Record<string,unknown>)?.nome ?? null,
+    grau: s.grau ?? null,
+    data_ajuizamento: s.dataAjuizamento ?? null,
+    nivel_sigilo: s.nivelSigilo ?? 0,
+    ultimas_movimentacoes: movimentos.slice(0, 10).map((m) => {
+      const mv = m as Record<string,unknown>;
+      return { codigo: mv.codigo, nome: mv.nome, data: mv.dataHora };
+    }),
+  };
+}
+
+// ── Cálculo de prazo em dias úteis (CPC arts. 219/220/224) ───────────────
+// Feriados nacionais fixos (MM-DD)
+const feriadosNacionais = new Set([
+  "01-01","04-21","05-01","09-07","10-12","11-02","11-15","11-20","12-25",
+]);
+
+function isUtil(date: Date): boolean {
+  const dow = date.getUTCDay();
+  if (dow === 0 || dow === 6) return false;
+  const key = `${String(date.getUTCMonth() + 1).padStart(2,"0")}-${String(date.getUTCDate()).padStart(2,"0")}`;
+  return !feriadosNacionais.has(key);
+}
+
+function calcularPrazo(dataInicio: string, diasUteis: number): Record<string, unknown> {
+  const inicio = new Date(`${dataInicio.slice(0, 10)}T12:00:00Z`);
+  if (isNaN(inicio.getTime())) throw new Error("Data de início inválida. Use formato AAAA-MM-DD.");
+  // CPC art. 224 §1º: começa a contar no primeiro dia útil seguinte
+  let cursor = new Date(inicio);
+  cursor.setUTCDate(cursor.getUTCDate() + 1);
+  while (!isUtil(cursor)) cursor.setUTCDate(cursor.getUTCDate() + 1);
+  const inicioContagem = cursor.toISOString().slice(0, 10);
+  let contados = 0;
+  while (contados < diasUteis) {
+    if (isUtil(cursor)) contados++;
+    if (contados < diasUteis) cursor.setUTCDate(cursor.getUTCDate() + 1);
+  }
+  // Verifica se o vencimento cai em dia não útil → próximo dia útil (art. 224 §1º)
+  while (!isUtil(cursor)) cursor.setUTCDate(cursor.getUTCDate() + 1);
+  const vencimento = cursor.toISOString().slice(0, 10);
+  return {
+    data_inicio: dataInicio.slice(0, 10),
+    inicio_contagem: inicioContagem,
+    dias_uteis: diasUteis,
+    vencimento,
+    base_legal: "CPC arts. 219, 220 e 224 §1º",
+    aviso: "Não considera suspensões especiais (recesso, plantão, férias coletivas). Confirmar no tribunal antes de protocolar.",
+  };
+}
+
 async function currentDatajudKey() {
   const response = await fetch(datajudAccessPage, {
     headers: { "User-Agent": "BeckerJurisIntelligence/1.0 (official metadata discovery)" },
@@ -1150,6 +1262,34 @@ Deno.serve(async (req: Request) => {
     if (persistError) return json({ detail: persistError.message }, 500);
     const artifact = await serializeArtifact(supabase, artifactId);
     return artifact ? json(artifact, 201) : json({ detail: "Falha ao recuperar artefato" }, 500);
+  }
+
+  // ── /processos/buscar — consulta processo pelo número CNJ ────────────────
+  if (req.method === "POST" && path === "/processos/buscar") {
+    const body = await req.json().catch(() => ({}));
+    const numero = String(body.numero ?? "").trim();
+    if (!numero) return json({ detail: "Campo 'numero' é obrigatório (formato CNJ)" }, 422);
+    try {
+      const resultado = await buscarProcessoDatajud(numero);
+      return json(resultado);
+    } catch (caught) {
+      const message = caught instanceof Error ? caught.message : "Falha na consulta DataJud";
+      return json({ detail: message }, 502);
+    }
+  }
+
+  // ── /prazos/calcular — calcula prazo em dias úteis (CPC) ─────────────────
+  if (req.method === "POST" && path === "/prazos/calcular") {
+    const body = await req.json().catch(() => ({}));
+    const dataInicio = String(body.data_inicio ?? "").trim();
+    const diasUteis = Math.max(1, Math.min(Number(body.dias_uteis ?? 15), 365));
+    if (!dataInicio) return json({ detail: "Campo 'data_inicio' é obrigatório (AAAA-MM-DD)" }, 422);
+    try {
+      return json(calcularPrazo(dataInicio, diasUteis));
+    } catch (caught) {
+      const message = caught instanceof Error ? caught.message : "Erro no cálculo";
+      return json({ detail: message }, 422);
+    }
   }
 
   return json({ detail: "Rota não encontrada" }, 404);

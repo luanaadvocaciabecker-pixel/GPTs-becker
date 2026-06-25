@@ -1,11 +1,13 @@
 openapi: 3.1.0
 info:
   title: Becker - Base de Conhecimento Jurídico
-  description: Consulta a base de conhecimento (doutrina/estratégia/prova digital) e a jurisprudência verificada do escritório.
-  version: 1.0.0
+  description: Consulta a base de conhecimento (doutrina/estratégia/prova digital), a jurisprudência verificada do escritório, processos no DataJud CNJ e cálculo de prazos.
+  version: 1.1.0
 servers:
   - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1
-    description: Edge Functions do projeto Becker Juris Intelligence
+    description: Edge Functions — buscar (knowledge base)
+  - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1/becker-juris
+    description: Edge Functions — becker-juris (processos e prazos)
 paths:
   /buscar:
     post:
@@ -66,3 +68,58 @@ paths:
                     type: array
                     items:
                       type: object
+
+  /processos/buscar:
+    post:
+      operationId: buscarProcesso
+      servers:
+        - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1/becker-juris
+      summary: Consulta processo pelo número CNJ em qualquer tribunal do DataJud.
+      description: >
+        Retorna dados completos do processo (classe, assuntos, órgão julgador, grau,
+        data de ajuizamento, últimas movimentações). Funciona para TJSC, STJ, STF, TRF,
+        TRT e todos os demais tribunais. Use quando o usuário informar o número de processo.
+        Resultados não são jurisprudência citável.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [numero]
+              properties:
+                numero:
+                  type: string
+                  description: Número CNJ do processo (ex. 0000001-00.2024.8.24.0000).
+      responses:
+        "200":
+          description: Dados do processo.
+
+  /prazos/calcular:
+    post:
+      operationId: calcularPrazo
+      servers:
+        - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1/becker-juris
+      summary: Calcula prazo processual em dias úteis (CPC arts. 219, 220, 224).
+      description: >
+        Calcula a data de vencimento excluindo sábados, domingos e feriados nacionais.
+        Use quando o usuário perguntar sobre prazo processual. Sempre exiba o aviso retornado
+        sobre suspensões especiais e recessos.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [data_inicio, dias_uteis]
+              properties:
+                data_inicio:
+                  type: string
+                  description: Data de publicação/intimação (AAAA-MM-DD).
+                dias_uteis:
+                  type: integer
+                  minimum: 1
+                  maximum: 365
+      responses:
+        "200":
+          description: Prazo calculado com data de vencimento.
