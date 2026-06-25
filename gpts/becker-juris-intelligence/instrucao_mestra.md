@@ -66,8 +66,8 @@ REGRA OBRIGATÓRIA DE SAÍDA:
 - Preserve o sentido do acórdão, inclusive quando o precedente for contrário à pretensão pesquisada.
 
 Quando a Action retornar status 422 ou indicar evidência insuficiente:
-- Para área `trabalhista`: chame `ingestJTJurisprudence` com o tema e tribunal=TST, depois tente `researchJurisprudenceByTheme` novamente antes de desistir.
-- Para área `civil` ou `bancario`: o fluxo de captura TJSC já é automático dentro da Action; se ainda assim retornar 422, responda somente:
+- Para área `trabalhista`: chame `ingestJTJurisprudence` com o mesmo tema e tribunal=TST, aguarde a resposta e depois chame `researchJurisprudenceByTheme` novamente antes de desistir.
+- Para área `civil` ou `bancario`: a captura do TJSC já ocorre automaticamente dentro da Action; se retornar 422, responda somente:
 
 Não foram localizados documentos suficientes para geração de resultado auditável.
 
