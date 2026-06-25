@@ -1,0 +1,222 @@
+openapi: 3.1.0
+info:
+  title: Becker Monitor — Monitoramento Processual
+  description: Consulta novidades processuais, lista processos por advogado e busca detalhes de processos específicos.
+  version: 1.0.0
+servers:
+  - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1/becker-monitor
+    description: Edge Function do monitor processual
+
+paths:
+  /resumo:
+    get:
+      operationId: resumoGeral
+      summary: Resumo geral do escritório.
+      description: >
+        Retorna total de processos monitorados, quantidade de novidades nas
+        últimas 24h e histórico das últimas execuções do monitor automático.
+        Use quando o usuário pedir "resumo geral", "como está o escritório" ou similar.
+      responses:
+        "200":
+          description: Resumo do escritório.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  processos_monitorados:
+                    type: integer
+                  novidades_ultimas_24h:
+                    type: integer
+                  ultimas_execucoes:
+                    type: array
+                    items:
+                      type: object
+
+  /novidades:
+    get:
+      operationId: listarNovidades
+      summary: Lista movimentações novas detectadas pelo monitor.
+      description: >
+        Retorna processos com movimentações novas no período informado.
+        Use quando o usuário perguntar "tem novidade?", "o que aconteceu hoje?",
+        "o que tem para a [advogado]?". Filtre por advogado quando o nome for mencionado.
+      parameters:
+        - name: horas
+          in: query
+          description: Período de busca em horas (padrão 24, máximo 168).
+          schema:
+            type: integer
+            default: 24
+        - name: advogado
+          in: query
+          description: Filtra por nome do advogado responsável (ex. Luana, Andressa, Alana, Samaira).
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Novidades encontradas.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  periodo_horas:
+                    type: integer
+                  total_processos:
+                    type: integer
+                  total_movimentacoes:
+                    type: integer
+                  novidades:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        processo:
+                          type: string
+                        descricao:
+                          type: string
+                        area:
+                          type: string
+                        movimentos:
+                          type: array
+                          items:
+                            type: object
+
+  /processos:
+    get:
+      operationId: listarProcessos
+      summary: Lista processos monitorados com filtros.
+      description: >
+        Lista todos os processos ativos. Use para buscar processos de um advogado
+        específico ou encontrar o número CNJ a partir do nome do cliente.
+      parameters:
+        - name: advogado
+          in: query
+          description: Filtra por advogado (ex. Luana, Andressa, Alana, Samaira).
+          schema:
+            type: string
+        - name: area
+          in: query
+          description: Filtra por área.
+          schema:
+            type: string
+            enum: [trabalhista, civel, bancario]
+        - name: busca
+          in: query
+          description: Busca por nome do cliente ou número do processo.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Lista de processos.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                  processos:
+                    type: array
+                    items:
+                      type: object
+
+  /advogados:
+    get:
+      operationId: listarAdvogados
+      summary: Lista advogados com contagem de processos por área.
+      description: >
+        Retorna cada advogado do escritório com o total de processos e
+        distribuição por área. Use quando perguntarem sobre a carteira de cada advogado.
+      responses:
+        "200":
+          description: Lista de advogados.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  advogados:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        nome:
+                          type: string
+                        total:
+                          type: integer
+                        trabalhista:
+                          type: integer
+                        civel:
+                          type: integer
+                        bancario:
+                          type: integer
+
+  /processo/detalhe:
+    post:
+      operationId: detalheProcesso
+      summary: Detalha um processo específico com histórico e dados do DataJud.
+      description: >
+        Retorna dados completos de um processo: informações cadastrais, histórico
+        de movimentações já detectadas pelo monitor e dados em tempo real do DataJud CNJ.
+        Use quando o usuário informar o número do processo ou pedir detalhes de um caso.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [numero]
+              properties:
+                numero:
+                  type: string
+                  description: Número CNJ do processo (ex. 0001234-00.2024.5.12.0001).
+      responses:
+        "200":
+          description: Dados do processo.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  numero:
+                    type: string
+                  descricao:
+                    type: string
+                  area:
+                    type: string
+                  datajud:
+                    type: object
+                  historico_becker:
+                    type: array
+                    items:
+                      type: object
+
+  /prazos/calcular:
+    post:
+      operationId: calcularPrazo
+      servers:
+        - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1/becker-juris
+      summary: Calcula prazo processual em dias úteis (CPC arts. 219, 220, 224).
+      description: >
+        Calcula a data de vencimento excluindo sábados, domingos e feriados nacionais.
+        Use quando o usuário perguntar sobre prazo. Sempre exiba o aviso retornado.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [data_inicio, dias_uteis]
+              properties:
+                data_inicio:
+                  type: string
+                  description: Data de publicação/intimação (AAAA-MM-DD).
+                dias_uteis:
+                  type: integer
+                  minimum: 1
+                  maximum: 365
+      responses:
+        "200":
+          description: Prazo calculado.
