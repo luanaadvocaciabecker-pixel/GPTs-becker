@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  title: Becker Juris Intelligence — Base de Jurisprudência
+  description: |
+    Busca jurisprudência na base vetorial da Advocacia Becker.
+    Retorna chunks de acórdãos com ementa, tribunal, processo e fundamentação
+    para montagem de fichas no formato padrão Becker.
+  version: 1.0.0
+
+servers:
+  - url: https://bpzuktssvdosxlxbaeyl.supabase.co/functions/v1
+    description: Becker Juris Intelligence — Supabase Edge Functions
+
+paths:
+  /buscar:
+    post:
+      operationId: buscarJurisprudencia
+      summary: Busca jurisprudência na base vetorial
+      description: |
+        Realiza busca semântica (RAG) na base de conhecimento jurídico.
+        Use para encontrar acórdãos, ementas e precedentes relevantes.
+        Faça no máximo 2 chamadas por resposta ao usuário.
+        
+        Parâmetros recomendados por tipo de busca:
+        - Busca geral por tema: k=5, threshold=0.3
+        - Busca específica com termos precisos: k=3, threshold=0.5
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  description: |
+                    Tema ou pergunta jurídica. Seja específico:
+                    inclua área, subtema e palavras-chave relevantes.
+                  example: "cartão de crédito RMC reserva de margem consignável prática abusiva idoso"
+                k:
+                  type: integer
+                  description: Número de resultados (padrão 5, máximo 10)
+                  default: 5
+                  minimum: 1
+                  maximum: 10
+                threshold:
+                  type: number
+                  description: Limiar de similaridade 0.0-1.0 (padrão 0.3)
+                  default: 0.3
+                  minimum: 0.0
+                  maximum: 1.0
+                area:
+                  type: string
+                  description: Filtrar por área jurídica
+                  enum: [bancario, trabalhista, civel]
+      responses:
+        '200':
+          description: Lista de chunks de jurisprudência encontrados
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  resultados:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        conteudo:
+                          type: string
+                          description: Texto do chunk (ementa, tese ou trecho do acórdão)
+                        titulo_documento:
+                          type: string
+                          description: Título do acórdão ou documento
+                        tribunal:
+                          type: string
+                          description: Sigla do tribunal
+                        processo:
+                          type: string
+                          description: Número do processo CNJ
+                        relator:
+                          type: string
+                          description: Nome do relator
+                        data_julgamento:
+                          type: string
+                          description: Data do julgamento
+                        link:
+                          type: string
+                          description: URL do acórdão no tribunal
+                        area:
+                          type: string
+                          description: Área jurídica
+                        similaridade:
+                          type: number
+                          description: Score de similaridade (0-1)
+        '400':
+          description: Parâmetros inválidos
+        '500':
+          description: Erro interno
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+security:
+  - ApiKeyAuth: []
