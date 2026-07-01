@@ -1,72 +1,125 @@
-# GPTs Becker
+# GPTs Becker — Repositório oficial dos 3 GPTs da Becker Advogados
 
-Repositório dos GPTs e da infraestrutura de conhecimento jurídico do Becker Advogados.
+> ⚠️ ATENÇÃO — LEIA ANTES DE MEXER EM QUALQUER COISA
+>
+> Este repositório contém APENAS o código dos GPTs.
+> Não confunda com o `sistema-becker` (gestão de processos, prazos e clientes).
 
-## Projetos atuais
+---
 
-- **Becker GPT Bancário**: GPT personalizado no ChatGPT.
-- **Becker Juris Intelligence**: backend Supabase com base vetorial, Edge Function e busca híbrida.
+## Os 3 GPTs da Becker Advogados
 
-## Estrutura
+### 1. Becker GPT Bancário/Consumidor
+**Onde fica no ChatGPT:** "Becker GPT Bancário/Consumidor"
+**Função:** Assistente jurídico interno para Direito Bancário e Direito do Consumidor.
+Analisa documentos, identifica teses, pesquisa jurisprudência, elabora minutas, manifestações e estratégias processuais.
+**Backend (Supabase):** projeto `Becker Juris Intelligence` (`bpzuktssvdosxlxbaeyl`)
+**Edge Function:** `/buscar`
+**Tabelas:** `base_conhecimento` + `jurisprudencia`
+**Código aqui:** `gpts/becker-gpt-bancario/`
 
-```text
+---
+
+### 2. Becker Monitor
+**Onde fica no ChatGPT:** "Becker Monitor"
+**Função:** Monitoramento processual — acompanha o DJEN (Diário de Justiça Eletrônico Nacional), identifica publicações, prazos e movimentações por processo, cliente ou advogada responsável.
+**Backend (Supabase):** projeto `Becker Juris Intelligence` (`bpzuktssvdosxlxbaeyl`)
+**Edge Function:** `/becker-monitor`
+**Pipeline automático:** `djen-pipeline` (roda todo dia útil às 8h via cron no servidor Oracle)
+**Tabelas:** `djen_publicacoes` + `djen_analises`
+**Código aqui:** `gpts/becker-monitor/`
+
+---
+
+### 3. Becker Juris Intelligence
+**Onde fica no ChatGPT:** "Becker Juris Intelligence"
+**Função:** Núcleo de pesquisa jurisprudencial — localiza precedentes, analisa teses, identifica fundamentos aplicáveis e apoia a construção de estratégias processuais e petições.
+**Área:** Civil + Bancário + Consumidor (NÃO inclui Trabalhista — sistema separado no futuro)
+**Backend (Supabase):** projeto `Becker Juris Intelligence` (`bpzuktssvdosxlxbaeyl`)
+**Edge Function:** `/becker-juris`
+**Tabelas:** `bji_documents` + `bji_chunks`
+**Código aqui:** `supabase/functions/becker-juris/`
+
+---
+
+## Projetos Supabase — qual é qual
+
+| Nome no Supabase | ID | Para que serve |
+|---|---|---|
+| **Becker Juris Intelligence** | `bpzuktssvdosxlxbaeyl` | Os 3 GPTs + DJEN pipeline |
+| **Becker Advogados** | `fnuzhypsqvyolqqafrba` | Sistema interno de gestão (processos, prazos, clientes) — NÃO é GPT |
+
+---
+
+## Repositórios GitHub — qual é qual
+
+| Repo | Conteúdo |
+|---|---|
+| **`gpts-becker`** (este aqui) | Código dos 3 GPTs + DJEN |
+| **`sistema-becker`** | Gestão de processos, Cloudflare Worker — NÃO confundir com GPTs |
+
+---
+
+## Estrutura de pastas
+
+```
 gpts/
   becker-gpt-bancario/
-    instrucao_mestra.md
-    action_openapi.yaml
+    instrucao_mestra.md       ← prompt do GPT Bancário/Consumidor
+    action_openapi.yaml       ← action que conecta ao /buscar
+
+  becker-monitor/
+    instrucao_mestra.md       ← prompt do Becker Monitor
+    action_openapi.yaml       ← action que conecta ao /becker-monitor
+
+  becker-juris-intelligence/
+    instrucao_mestra.md       ← prompt do Becker Juris Intelligence
+    action_openapi.yaml       ← action que conecta ao /becker-juris
 
 supabase/
-  functions/buscar/
-    index.ts
-    deno.json
-  config.toml
+  functions/
+    buscar/                   ← serve o GPT Bancário/Consumidor
+    becker-monitor/           ← serve o Becker Monitor + recebe DJEN
+    becker-juris/             ← serve o Becker Juris Intelligence
+    djen-pipeline/            ← coleta e analisa publicações do PJe (automático, não é GPT)
 
 database/
   01_schema.sql
   02_funcoes_busca.sql
 
 ingestion/
-  03_ingestao_google.py
-  03_ingestao_google_auditada.py
-  gerar_base_auditada_2026.py
+  scripts de ingestão de jurisprudência
 
 data/
   auditada_2026/
-    chunks_base_conhecimento_auditada_2026.jsonl
-
-docs/
-  auditorias/
 ```
 
-## Segurança
+---
 
-Não coloque chaves no repositório.
+## Segurança — NUNCA coloque no repositório
 
-Use variáveis de ambiente:
+- Chaves de API (`GOOGLE_API_KEY`, `GEMINI_API_KEY`, `SUPABASE_SERVICE_KEY`)
+- Tokens (`PIPELINE_SECRET`, `WHATSAPP_TOKEN`)
+- Arquivos `.env`
 
-- `GOOGLE_API_KEY`
-- `SUPABASE_URL`
-- `SUPABASE_SERVICE_KEY`
+Use sempre variáveis de ambiente no painel do Supabase.
 
-Arquivos `.env`, pastas temporárias, exports crus da Claude e SQLs intermediários ficam fora do Git.
+---
 
-## Status da base bancária
+## Chaves de API — onde ficam
 
-Em 2026-06-23 foi subida a pasta lógica `AUDITORIA_2026` no Supabase `Becker Juris Intelligence`, com 70 chunks auditados e embeddings Google `gemini-embedding-001`.
+Todas no Supabase projeto **Becker Juris Intelligence** (`bpzuktssvdosxlxbaeyl`) → Settings → Edge Functions:
 
-Pontos corrigidos relevantes:
+| Nome do secret | Para que serve |
+|---|---|
+| `GEMINI_API_KEY` | Análise de publicações DJEN com Gemini 2.0 Flash |
+| `GOOGLE_API_KEY` | Embeddings para busca semântica |
+| `PIPELINE_SECRET` | Autenticação do cron Oracle (`becker2026djen`) |
 
-- Tema 1085/STJ não deve ser usado como fundamento específico para RMC/RCC.
-- Tema 810/STF não se aplica diretamente a contratos bancários privados.
-- Tema 204/STF não corresponde à tese de fortuito interno da Súmula 479/STJ.
-- Tema 1249/STF tem repercussão geral, mas exige cuidado quanto ao mérito.
-- Jurisprudência TJSC genérica deve ser citada apenas com acórdão específico.
+---
 
-## Fluxo recomendado
+## Cron automático DJEN
 
-1. Editar conteúdo ou scripts neste repositório.
-2. Validar que não há chaves com busca por `sb_secret_`, `GOOGLE_API_KEY`, `SUPABASE_SERVICE_KEY`.
-3. Gerar base auditada quando necessário.
-4. Ingerir no Supabase usando variáveis de ambiente.
-5. Testar a Edge Function `/buscar`.
-
+- **Servidor:** Oracle VM `163.176.240.219`
+- **Horário:** Todo dia útil às **8h (horário de Brasília)**
+- **O que faz:** Busca publicações do PJe → analisa com Gemini 2.0 Flash → salva no banco → Becker Monitor consulta
