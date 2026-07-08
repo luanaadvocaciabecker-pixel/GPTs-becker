@@ -25,7 +25,7 @@ Deno.serve(async (req) => {
       tema = null,
       tribunal = null,
       incluir_lacuna = true,
-      k = 8,
+      k = 4,
     } = await req.json();
 
     if (!query || typeof query !== "string") {
@@ -65,7 +65,7 @@ Deno.serve(async (req) => {
     const emb = (await embResp.json()).embedding.values;
 
     const sb = createClient(supabaseUrl, serviceRoleKey);
-    const matchCount = Math.min(Math.max(Number(k) || 8, 1), 20);
+    const matchCount = Math.min(Math.max(Number(k) || 4, 1), 8);
     const rpc = tabela === "jurisprudencia" ? "buscar_jurisprudencia" : "buscar_base";
     const params = tabela === "jurisprudencia"
       ? {

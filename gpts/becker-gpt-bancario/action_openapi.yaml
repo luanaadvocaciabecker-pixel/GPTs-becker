@@ -53,7 +53,9 @@ paths:
                   default: true
                 k:
                   type: integer
-                  default: 8
+                  default: 4
+                  minimum: 1
+                  maximum: 8
       responses:
         "200":
           description: Resultados ordenados por relevância.
